@@ -4908,9 +4908,11 @@ function exportCSV(){let rows=[['Data / Ngày','Zadanie / Bài','Poprawnie / Đ�
 function changePIN(){let p=prompt('Nowy PIN (4–8 cyfr) / Đặt PIN mới (4–8 chữ số):');if(p===null)return;if(!/^\d{4,8}$/.test(p)){alert('PIN musi mieć 4–8 cyfr. / PIN cần có 4–8 chữ số.');return}appState.pin=p;save();alert('PIN zapisany. / Đã lưu PIN.')}
 function resetProgress(){if(confirm('Usunąć wszystkie wyniki? / Xóa toàn bộ kết quả?')){state.results={};state.events=[];state.stars=0;save();render()}}
 function resetAllData(){if(!confirm('Zresetować postępy i historię obu klas (2 i 4)? PIN rodzica pozostanie bez zmian. / Đặt lại toàn bộ tiến độ và lịch sử của cả lớp 2 và lớp 4? PIN bố mẹ sẽ được giữ nguyên.'))return;appState.profiles={'2':freshProfile(),'4':freshProfile()};state=appState.profiles[selectedGrade];save();setView('parent')}
-function loadLatestVersion(){let url=new URL(location.href);url.searchParams.set('update',String(Date.now()));location.replace(url.toString())}
+const FRESH_LOAD_KEY='mathAdventureFreshLoadPending';
+function loadLatestVersion(){try{sessionStorage.setItem(FRESH_LOAD_KEY,'1')}catch{}let url=new URL(location.href);url.searchParams.set('update',String(Date.now()));location.replace(url.toString())}
+function shouldRenderCurrentPage(){let url=new URL(location.href);try{if(sessionStorage.getItem(FRESH_LOAD_KEY)==='1'){sessionStorage.removeItem(FRESH_LOAD_KEY);url.searchParams.delete('update');history.replaceState(null,'',url.toString());return true}}catch{}if(navigator.onLine===false)return true;let stamp=Number(url.searchParams.get('update'));if(stamp&&Number.isFinite(stamp)&&Date.now()-stamp<120000){url.searchParams.delete('update');history.replaceState(null,'',url.toString());return true}loadLatestVersion();return false}
 const renderParentPanelBase=parent;
 parent=function(){renderParentPanelBase();if(mode!=='parent')return;const card=app.querySelector('.card');if(!card)return;const section=document.createElement('section');section.className='section';section.innerHTML=`<h3>Ustawienia aplikacji / Cài đặt ứng dụng</h3>${vn('Bố mẹ có thể đặt lại dữ liệu học hoặc tải lại phiên bản mới nhất.') }<div class="actions"><button class="outline" onclick="resetAllData()">↺ Zacznij od początku${vn('Đặt lại dữ liệu từ đầu')}</button><button class="secondary" onclick="loadLatestVersion()">⬇ Wczytaj najnowszą wersję${vn('Tải phiên bản mới nhất')}</button></div>`;card.appendChild(section)};
 document.getElementById('parentBtn').addEventListener('click',()=>{if(mode==='parent'){setView('parent');return}if(!appState.pin){view='setup';render();return}view='unlock';render()});
-render();
+if(shouldRenderCurrentPage())render();
 </script></body></html>
