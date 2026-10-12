@@ -1,8 +1,8 @@
-<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#4b58d1"><title>Matematyczna Przygoda · Klasa 4</title><style>
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#4b58d1"><title>Matematyczna Przygoda · Klasy 2 i 4</title><style>
 :root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#1b2342;background:#f3f5ff}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:14px;padding:12px 15px;background:#4b58d1;color:white;font-weight:750}button:disabled{opacity:.45}button.secondary{background:#e9ecff;color:#3441a2}button.outline{background:white;border:1px solid #ccd2ef;color:#33409c}.wrap{max-width:850px;margin:auto;padding:18px 15px 80px}header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:20px}.brand{font-size:22px;font-weight:850}.vn{font-size:12px;color:#8490ac;font-weight:400;line-height:1.6}.card{background:white;border:1px solid #e2e6f7;border-radius:22px;padding:20px;margin-bottom:15px;box-shadow:0 5px 22px #273c8210}.muted{color:#66728c}.hero{background:linear-gradient(125deg,#4b58d1,#8466d5);color:white}.hero .vn{color:#d7d8ff}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.big{font-size:clamp(29px,7vw,43px);font-weight:850;text-align:center;margin:16px 0}.pill{display:inline-block;background:#eef0ff;color:#3c4cb3;padding:6px 11px;border-radius:30px;font-size:12px;font-weight:750}.levels{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.level{padding:11px 3px;text-align:center;border-radius:12px;background:#edf0ff;font-size:13px;color:#35429e;font-weight:750}.level.active{background:#4b58d1;color:white}.level.locked{opacity:.5}.task{border:1px solid #e0e5f4;border-radius:13px;padding:11px;display:flex;align-items:center;justify-content:space-between;gap:8px}.task span{font-weight:650}.task.done{border-color:#99d7b1;background:#f1fff5}.task.wrong{border-color:#f2c9a2;background:#fff9f1}.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.options button{background:#eef0ff;color:#263584;min-height:60px;font-size:19px}.options button.chosen{background:#4b58d1;color:white}.options button:disabled{opacity:1}.note{padding:13px;border-radius:14px;background:#f0f4ff;margin-top:10px}.good{background:#e9f9ee;color:#17673b}.bad{background:#fff4e5;color:#815319}input{width:100%;border:2px solid #dce2f3;border-radius:13px;padding:13px;background:white;font-size:20px;color:#17223f}input:focus{outline-color:#6874e7}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.actions button{flex:1}strong.key{color:#ba4381;background:#fff0f6;padding:1px 4px;border-radius:5px} .progress{height:9px;background:#e9ebf8;border-radius:20px;overflow:hidden}.progress>div{height:100%;background:#4ebc83}.stat{text-align:center;background:#f3f5ff;padding:13px;border-radius:15px}.stat b{font-size:24px;display:block}.hidden{display:none!important}table{width:100%;border-collapse:collapse;font-size:13px}td,th{text-align:left;padding:9px;border-bottom:1px solid #e6e8f5}small{color:#7d88a1}h1,h2,h3{margin:0 0 10px}h2{font-size:21px}p{line-height:1.55}.list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.num{background:#f1f3ff;color:#3444a6;padding:11px 3px}.num.current{background:#4b58d1;color:white}.num.mastered{background:#d9f6e3;color:#167343}.num.needs{background:#ffebd8;color:#995513}.section{margin-top:18px}.step{padding:12px;border-left:4px solid #8996ed;background:#f5f6ff;margin:8px 0;border-radius:6px}.footer{text-align:center;font-size:12px;color:#8892ab;margin-top:20px}@media(min-width:650px){.list{grid-template-columns:repeat(10,1fr)}}@media(min-width:900px) and (orientation:landscape){.wrap{max-width:1200px;padding:22px 28px 48px}.card{padding:24px}#app.home{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;align-items:start}#app.home>.card{margin:0}#app.home>.actions{grid-column:1/-1;margin-top:0}.home .task{padding:13px 15px}.list{grid-template-columns:repeat(12,minmax(0,1fr))}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.big{font-size:clamp(42px,5vw,56px)}}@media(max-width:420px){.card{padding:15px}.brand{font-size:19px}.levels{gap:3px}.level{font-size:11px}}
-</style></head><body><div class="wrap"><header><div><div class="brand">🌈 Matematyczna Przygoda</div><div class="vn">Phiêu lưu toán học · Lớp 4</div></div><button class="secondary" id="parentBtn" title="Panel rodzica / Khu vực bố mẹ">🔒</button></header><main id="app"></main><div class="footer">200 zadań · PL / VN · Dane zapisane lokalnie / Dữ liệu lưu trên thiết bị</div></div>
+</style></head><body><div class="wrap"><header><div><div class="brand">🌈 Matematyczna Przygoda</div><div class="vn" id="subTitle">Phiêu lưu toán học · Chọn lớp trước</div></div><div class="headerActions"><button class="secondary hidden" id="gradeBtn" onclick="setView('grades')" title="Zmień klasę / Đổi lớp">🔄</button><button class="secondary" id="parentBtn" title="Panel rodzica / Khu vực bố mẹ">🔒</button></div></header><main id="app"></main><div class="footer">Klasa 2 i 4 · 200 zadań dla każdej klasy · Dữ liệu lưu trên thiết bị</div></div>
 <script>
-const BANK=[
+const BANK4=[
   {
     "id": 1,
     "level": 1,
@@ -2693,35 +2693,2214 @@ const BANK=[
     "id": 200
   }
 ];
-const LEVELS=[['🌱','Pierwsze kroki','Nhân trước cộng trừ'],['⭐','Mnożenie i dzielenie','Nhân chia từ trái sang phải'],['🪄','Magiczne nawiasy','Phép tính có ngoặc'],['🏰','Trudniejsze działania','Phép tính nhiều bước'],['📚','Zadania tekstowe','Toán có lời văn']];
+const BANK2=[
+  {
+    "id": 1,
+    "level": 1,
+    "expr": "10 + 5",
+    "first": "10 + 5",
+    "answer": 15,
+    "steps": [
+      "10 + 5 = 15"
+    ]
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "expr": "38 − 7",
+    "first": "38 − 7",
+    "answer": 31,
+    "steps": [
+      "38 − 7 = 31"
+    ]
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "expr": "16 + 11",
+    "first": "16 + 11",
+    "answer": 27,
+    "steps": [
+      "16 + 11 = 27"
+    ]
+  },
+  {
+    "id": 4,
+    "level": 1,
+    "expr": "44 − 11",
+    "first": "44 − 11",
+    "answer": 33,
+    "steps": [
+      "44 − 11 = 33"
+    ]
+  },
+  {
+    "id": 5,
+    "level": 1,
+    "expr": "22 + 17",
+    "first": "22 + 17",
+    "answer": 39,
+    "steps": [
+      "22 + 17 = 39"
+    ]
+  },
+  {
+    "id": 6,
+    "level": 1,
+    "expr": "50 − 15",
+    "first": "50 − 15",
+    "answer": 35,
+    "steps": [
+      "50 − 15 = 35"
+    ]
+  },
+  {
+    "id": 7,
+    "level": 1,
+    "expr": "28 + 23",
+    "first": "28 + 23",
+    "answer": 51,
+    "steps": [
+      "28 + 23 = 51"
+    ]
+  },
+  {
+    "id": 8,
+    "level": 1,
+    "expr": "56 − 19",
+    "first": "56 − 19",
+    "answer": 37,
+    "steps": [
+      "56 − 19 = 37"
+    ]
+  },
+  {
+    "id": 9,
+    "level": 1,
+    "expr": "34 + 8",
+    "first": "34 + 8",
+    "answer": 42,
+    "steps": [
+      "34 + 8 = 42"
+    ]
+  },
+  {
+    "id": 10,
+    "level": 1,
+    "expr": "62 − 7",
+    "first": "62 − 7",
+    "answer": 55,
+    "steps": [
+      "62 − 7 = 55"
+    ]
+  },
+  {
+    "id": 11,
+    "level": 1,
+    "expr": "40 + 14",
+    "first": "40 + 14",
+    "answer": 54,
+    "steps": [
+      "40 + 14 = 54"
+    ]
+  },
+  {
+    "id": 12,
+    "level": 1,
+    "expr": "68 − 11",
+    "first": "68 − 11",
+    "answer": 57,
+    "steps": [
+      "68 − 11 = 57"
+    ]
+  },
+  {
+    "id": 13,
+    "level": 1,
+    "expr": "46 + 20",
+    "first": "46 + 20",
+    "answer": 66,
+    "steps": [
+      "46 + 20 = 66"
+    ]
+  },
+  {
+    "id": 14,
+    "level": 1,
+    "expr": "74 − 15",
+    "first": "74 − 15",
+    "answer": 59,
+    "steps": [
+      "74 − 15 = 59"
+    ]
+  },
+  {
+    "id": 15,
+    "level": 1,
+    "expr": "52 + 5",
+    "first": "52 + 5",
+    "answer": 57,
+    "steps": [
+      "52 + 5 = 57"
+    ]
+  },
+  {
+    "id": 16,
+    "level": 1,
+    "expr": "80 − 19",
+    "first": "80 − 19",
+    "answer": 61,
+    "steps": [
+      "80 − 19 = 61"
+    ]
+  },
+  {
+    "id": 17,
+    "level": 1,
+    "expr": "58 + 11",
+    "first": "58 + 11",
+    "answer": 69,
+    "steps": [
+      "58 + 11 = 69"
+    ]
+  },
+  {
+    "id": 18,
+    "level": 1,
+    "expr": "86 − 7",
+    "first": "86 − 7",
+    "answer": 79,
+    "steps": [
+      "86 − 7 = 79"
+    ]
+  },
+  {
+    "id": 19,
+    "level": 1,
+    "expr": "64 + 17",
+    "first": "64 + 17",
+    "answer": 81,
+    "steps": [
+      "64 + 17 = 81"
+    ]
+  },
+  {
+    "id": 20,
+    "level": 1,
+    "expr": "92 − 11",
+    "first": "92 − 11",
+    "answer": 81,
+    "steps": [
+      "92 − 11 = 81"
+    ]
+  },
+  {
+    "id": 21,
+    "level": 1,
+    "expr": "10 + 23",
+    "first": "10 + 23",
+    "answer": 33,
+    "steps": [
+      "10 + 23 = 33"
+    ]
+  },
+  {
+    "id": 22,
+    "level": 1,
+    "expr": "38 − 15",
+    "first": "38 − 15",
+    "answer": 23,
+    "steps": [
+      "38 − 15 = 23"
+    ]
+  },
+  {
+    "id": 23,
+    "level": 1,
+    "expr": "16 + 8",
+    "first": "16 + 8",
+    "answer": 24,
+    "steps": [
+      "16 + 8 = 24"
+    ]
+  },
+  {
+    "id": 24,
+    "level": 1,
+    "expr": "44 − 19",
+    "first": "44 − 19",
+    "answer": 25,
+    "steps": [
+      "44 − 19 = 25"
+    ]
+  },
+  {
+    "id": 25,
+    "level": 1,
+    "expr": "22 + 14",
+    "first": "22 + 14",
+    "answer": 36,
+    "steps": [
+      "22 + 14 = 36"
+    ]
+  },
+  {
+    "id": 26,
+    "level": 1,
+    "expr": "50 − 7",
+    "first": "50 − 7",
+    "answer": 43,
+    "steps": [
+      "50 − 7 = 43"
+    ]
+  },
+  {
+    "id": 27,
+    "level": 1,
+    "expr": "28 + 20",
+    "first": "28 + 20",
+    "answer": 48,
+    "steps": [
+      "28 + 20 = 48"
+    ]
+  },
+  {
+    "id": 28,
+    "level": 1,
+    "expr": "56 − 11",
+    "first": "56 − 11",
+    "answer": 45,
+    "steps": [
+      "56 − 11 = 45"
+    ]
+  },
+  {
+    "id": 29,
+    "level": 1,
+    "expr": "34 + 5",
+    "first": "34 + 5",
+    "answer": 39,
+    "steps": [
+      "34 + 5 = 39"
+    ]
+  },
+  {
+    "id": 30,
+    "level": 1,
+    "expr": "62 − 15",
+    "first": "62 − 15",
+    "answer": 47,
+    "steps": [
+      "62 − 15 = 47"
+    ]
+  },
+  {
+    "id": 31,
+    "level": 1,
+    "expr": "40 + 11",
+    "first": "40 + 11",
+    "answer": 51,
+    "steps": [
+      "40 + 11 = 51"
+    ]
+  },
+  {
+    "id": 32,
+    "level": 1,
+    "expr": "68 − 19",
+    "first": "68 − 19",
+    "answer": 49,
+    "steps": [
+      "68 − 19 = 49"
+    ]
+  },
+  {
+    "id": 33,
+    "level": 1,
+    "expr": "46 + 17",
+    "first": "46 + 17",
+    "answer": 63,
+    "steps": [
+      "46 + 17 = 63"
+    ]
+  },
+  {
+    "id": 34,
+    "level": 1,
+    "expr": "74 − 7",
+    "first": "74 − 7",
+    "answer": 67,
+    "steps": [
+      "74 − 7 = 67"
+    ]
+  },
+  {
+    "id": 35,
+    "level": 1,
+    "expr": "52 + 23",
+    "first": "52 + 23",
+    "answer": 75,
+    "steps": [
+      "52 + 23 = 75"
+    ]
+  },
+  {
+    "id": 36,
+    "level": 1,
+    "expr": "80 − 11",
+    "first": "80 − 11",
+    "answer": 69,
+    "steps": [
+      "80 − 11 = 69"
+    ]
+  },
+  {
+    "id": 37,
+    "level": 1,
+    "expr": "58 + 8",
+    "first": "58 + 8",
+    "answer": 66,
+    "steps": [
+      "58 + 8 = 66"
+    ]
+  },
+  {
+    "id": 38,
+    "level": 1,
+    "expr": "86 − 15",
+    "first": "86 − 15",
+    "answer": 71,
+    "steps": [
+      "86 − 15 = 71"
+    ]
+  },
+  {
+    "id": 39,
+    "level": 1,
+    "expr": "64 + 14",
+    "first": "64 + 14",
+    "answer": 78,
+    "steps": [
+      "64 + 14 = 78"
+    ]
+  },
+  {
+    "id": 40,
+    "level": 1,
+    "expr": "92 − 19",
+    "first": "92 − 19",
+    "answer": 73,
+    "steps": [
+      "92 − 19 = 73"
+    ]
+  },
+  {
+    "id": 41,
+    "level": 2,
+    "expr": "2 × 2",
+    "first": "2 × 2",
+    "answer": 4,
+    "steps": [
+      "2 × 2 = 4"
+    ]
+  },
+  {
+    "id": 42,
+    "level": 2,
+    "expr": "3 × 5",
+    "first": "3 × 5",
+    "answer": 15,
+    "steps": [
+      "3 × 5 = 15"
+    ]
+  },
+  {
+    "id": 43,
+    "level": 2,
+    "expr": "4 × 8",
+    "first": "4 × 8",
+    "answer": 32,
+    "steps": [
+      "4 × 8 = 32"
+    ]
+  },
+  {
+    "id": 44,
+    "level": 2,
+    "expr": "5 × 2",
+    "first": "5 × 2",
+    "answer": 10,
+    "steps": [
+      "5 × 2 = 10"
+    ]
+  },
+  {
+    "id": 45,
+    "level": 2,
+    "expr": "2 × 5",
+    "first": "2 × 5",
+    "answer": 10,
+    "steps": [
+      "2 × 5 = 10"
+    ]
+  },
+  {
+    "id": 46,
+    "level": 2,
+    "expr": "3 × 8",
+    "first": "3 × 8",
+    "answer": 24,
+    "steps": [
+      "3 × 8 = 24"
+    ]
+  },
+  {
+    "id": 47,
+    "level": 2,
+    "expr": "4 × 2",
+    "first": "4 × 2",
+    "answer": 8,
+    "steps": [
+      "4 × 2 = 8"
+    ]
+  },
+  {
+    "id": 48,
+    "level": 2,
+    "expr": "5 × 5",
+    "first": "5 × 5",
+    "answer": 25,
+    "steps": [
+      "5 × 5 = 25"
+    ]
+  },
+  {
+    "id": 49,
+    "level": 2,
+    "expr": "2 × 8",
+    "first": "2 × 8",
+    "answer": 16,
+    "steps": [
+      "2 × 8 = 16"
+    ]
+  },
+  {
+    "id": 50,
+    "level": 2,
+    "expr": "3 × 2",
+    "first": "3 × 2",
+    "answer": 6,
+    "steps": [
+      "3 × 2 = 6"
+    ]
+  },
+  {
+    "id": 51,
+    "level": 2,
+    "expr": "4 × 5",
+    "first": "4 × 5",
+    "answer": 20,
+    "steps": [
+      "4 × 5 = 20"
+    ]
+  },
+  {
+    "id": 52,
+    "level": 2,
+    "expr": "5 × 8",
+    "first": "5 × 8",
+    "answer": 40,
+    "steps": [
+      "5 × 8 = 40"
+    ]
+  },
+  {
+    "id": 53,
+    "level": 2,
+    "expr": "2 × 2",
+    "first": "2 × 2",
+    "answer": 4,
+    "steps": [
+      "2 × 2 = 4"
+    ]
+  },
+  {
+    "id": 54,
+    "level": 2,
+    "expr": "3 × 5",
+    "first": "3 × 5",
+    "answer": 15,
+    "steps": [
+      "3 × 5 = 15"
+    ]
+  },
+  {
+    "id": 55,
+    "level": 2,
+    "expr": "4 × 8",
+    "first": "4 × 8",
+    "answer": 32,
+    "steps": [
+      "4 × 8 = 32"
+    ]
+  },
+  {
+    "id": 56,
+    "level": 2,
+    "expr": "5 × 2",
+    "first": "5 × 2",
+    "answer": 10,
+    "steps": [
+      "5 × 2 = 10"
+    ]
+  },
+  {
+    "id": 57,
+    "level": 2,
+    "expr": "2 × 5",
+    "first": "2 × 5",
+    "answer": 10,
+    "steps": [
+      "2 × 5 = 10"
+    ]
+  },
+  {
+    "id": 58,
+    "level": 2,
+    "expr": "3 × 8",
+    "first": "3 × 8",
+    "answer": 24,
+    "steps": [
+      "3 × 8 = 24"
+    ]
+  },
+  {
+    "id": 59,
+    "level": 2,
+    "expr": "4 × 2",
+    "first": "4 × 2",
+    "answer": 8,
+    "steps": [
+      "4 × 2 = 8"
+    ]
+  },
+  {
+    "id": 60,
+    "level": 2,
+    "expr": "5 × 5",
+    "first": "5 × 5",
+    "answer": 25,
+    "steps": [
+      "5 × 5 = 25"
+    ]
+  },
+  {
+    "id": 61,
+    "level": 2,
+    "expr": "16 : 2",
+    "first": "16 : 2",
+    "answer": 8,
+    "steps": [
+      "16 : 2 = 8"
+    ]
+  },
+  {
+    "id": 62,
+    "level": 2,
+    "expr": "6 : 3",
+    "first": "6 : 3",
+    "answer": 2,
+    "steps": [
+      "6 : 3 = 2"
+    ]
+  },
+  {
+    "id": 63,
+    "level": 2,
+    "expr": "20 : 4",
+    "first": "20 : 4",
+    "answer": 5,
+    "steps": [
+      "20 : 4 = 5"
+    ]
+  },
+  {
+    "id": 64,
+    "level": 2,
+    "expr": "40 : 5",
+    "first": "40 : 5",
+    "answer": 8,
+    "steps": [
+      "40 : 5 = 8"
+    ]
+  },
+  {
+    "id": 65,
+    "level": 2,
+    "expr": "4 : 2",
+    "first": "4 : 2",
+    "answer": 2,
+    "steps": [
+      "4 : 2 = 2"
+    ]
+  },
+  {
+    "id": 66,
+    "level": 2,
+    "expr": "15 : 3",
+    "first": "15 : 3",
+    "answer": 5,
+    "steps": [
+      "15 : 3 = 5"
+    ]
+  },
+  {
+    "id": 67,
+    "level": 2,
+    "expr": "32 : 4",
+    "first": "32 : 4",
+    "answer": 8,
+    "steps": [
+      "32 : 4 = 8"
+    ]
+  },
+  {
+    "id": 68,
+    "level": 2,
+    "expr": "10 : 5",
+    "first": "10 : 5",
+    "answer": 2,
+    "steps": [
+      "10 : 5 = 2"
+    ]
+  },
+  {
+    "id": 69,
+    "level": 2,
+    "expr": "10 : 2",
+    "first": "10 : 2",
+    "answer": 5,
+    "steps": [
+      "10 : 2 = 5"
+    ]
+  },
+  {
+    "id": 70,
+    "level": 2,
+    "expr": "24 : 3",
+    "first": "24 : 3",
+    "answer": 8,
+    "steps": [
+      "24 : 3 = 8"
+    ]
+  },
+  {
+    "id": 71,
+    "level": 2,
+    "expr": "8 : 4",
+    "first": "8 : 4",
+    "answer": 2,
+    "steps": [
+      "8 : 4 = 2"
+    ]
+  },
+  {
+    "id": 72,
+    "level": 2,
+    "expr": "25 : 5",
+    "first": "25 : 5",
+    "answer": 5,
+    "steps": [
+      "25 : 5 = 5"
+    ]
+  },
+  {
+    "id": 73,
+    "level": 2,
+    "expr": "16 : 2",
+    "first": "16 : 2",
+    "answer": 8,
+    "steps": [
+      "16 : 2 = 8"
+    ]
+  },
+  {
+    "id": 74,
+    "level": 2,
+    "expr": "6 : 3",
+    "first": "6 : 3",
+    "answer": 2,
+    "steps": [
+      "6 : 3 = 2"
+    ]
+  },
+  {
+    "id": 75,
+    "level": 2,
+    "expr": "20 : 4",
+    "first": "20 : 4",
+    "answer": 5,
+    "steps": [
+      "20 : 4 = 5"
+    ]
+  },
+  {
+    "id": 76,
+    "level": 2,
+    "expr": "40 : 5",
+    "first": "40 : 5",
+    "answer": 8,
+    "steps": [
+      "40 : 5 = 8"
+    ]
+  },
+  {
+    "id": 77,
+    "level": 2,
+    "expr": "4 : 2",
+    "first": "4 : 2",
+    "answer": 2,
+    "steps": [
+      "4 : 2 = 2"
+    ]
+  },
+  {
+    "id": 78,
+    "level": 2,
+    "expr": "15 : 3",
+    "first": "15 : 3",
+    "answer": 5,
+    "steps": [
+      "15 : 3 = 5"
+    ]
+  },
+  {
+    "id": 79,
+    "level": 2,
+    "expr": "32 : 4",
+    "first": "32 : 4",
+    "answer": 8,
+    "steps": [
+      "32 : 4 = 8"
+    ]
+  },
+  {
+    "id": 80,
+    "level": 2,
+    "expr": "10 : 5",
+    "first": "10 : 5",
+    "answer": 2,
+    "steps": [
+      "10 : 5 = 2"
+    ]
+  },
+  {
+    "id": 81,
+    "level": 3,
+    "expr": "(15 + 4) − 2",
+    "first": "15 + 4",
+    "answer": 17,
+    "steps": [
+      "15 + 4 = 19",
+      "19 − 2 = 17"
+    ]
+  },
+  {
+    "id": 82,
+    "level": 3,
+    "expr": "58 − (7 + 6)",
+    "first": "7 + 6",
+    "answer": 45,
+    "steps": [
+      "7 + 6 = 13",
+      "58 − 13 = 45"
+    ]
+  },
+  {
+    "id": 83,
+    "level": 3,
+    "expr": "(21 + 8) − 6",
+    "first": "21 + 8",
+    "answer": 23,
+    "steps": [
+      "21 + 8 = 29",
+      "29 − 6 = 23"
+    ]
+  },
+  {
+    "id": 84,
+    "level": 3,
+    "expr": "64 − (11 + 10)",
+    "first": "11 + 10",
+    "answer": 43,
+    "steps": [
+      "11 + 10 = 21",
+      "64 − 21 = 43"
+    ]
+  },
+  {
+    "id": 85,
+    "level": 3,
+    "expr": "(27 + 12) − 10",
+    "first": "27 + 12",
+    "answer": 29,
+    "steps": [
+      "27 + 12 = 39",
+      "39 − 10 = 29"
+    ]
+  },
+  {
+    "id": 86,
+    "level": 3,
+    "expr": "70 − (5 + 6)",
+    "first": "5 + 6",
+    "answer": 59,
+    "steps": [
+      "5 + 6 = 11",
+      "70 − 11 = 59"
+    ]
+  },
+  {
+    "id": 87,
+    "level": 3,
+    "expr": "(33 + 4) − 4",
+    "first": "33 + 4",
+    "answer": 33,
+    "steps": [
+      "33 + 4 = 37",
+      "37 − 4 = 33"
+    ]
+  },
+  {
+    "id": 88,
+    "level": 3,
+    "expr": "76 − (9 + 10)",
+    "first": "9 + 10",
+    "answer": 57,
+    "steps": [
+      "9 + 10 = 19",
+      "76 − 19 = 57"
+    ]
+  },
+  {
+    "id": 89,
+    "level": 3,
+    "expr": "(39 + 8) − 8",
+    "first": "39 + 8",
+    "answer": 39,
+    "steps": [
+      "39 + 8 = 47",
+      "47 − 8 = 39"
+    ]
+  },
+  {
+    "id": 90,
+    "level": 3,
+    "expr": "82 − (13 + 6)",
+    "first": "13 + 6",
+    "answer": 63,
+    "steps": [
+      "13 + 6 = 19",
+      "82 − 19 = 63"
+    ]
+  },
+  {
+    "id": 91,
+    "level": 3,
+    "expr": "(15 + 12) − 2",
+    "first": "15 + 12",
+    "answer": 25,
+    "steps": [
+      "15 + 12 = 27",
+      "27 − 2 = 25"
+    ]
+  },
+  {
+    "id": 92,
+    "level": 3,
+    "expr": "58 − (7 + 10)",
+    "first": "7 + 10",
+    "answer": 41,
+    "steps": [
+      "7 + 10 = 17",
+      "58 − 17 = 41"
+    ]
+  },
+  {
+    "id": 93,
+    "level": 3,
+    "expr": "(21 + 4) − 6",
+    "first": "21 + 4",
+    "answer": 19,
+    "steps": [
+      "21 + 4 = 25",
+      "25 − 6 = 19"
+    ]
+  },
+  {
+    "id": 94,
+    "level": 3,
+    "expr": "64 − (11 + 6)",
+    "first": "11 + 6",
+    "answer": 47,
+    "steps": [
+      "11 + 6 = 17",
+      "64 − 17 = 47"
+    ]
+  },
+  {
+    "id": 95,
+    "level": 3,
+    "expr": "(27 + 8) − 10",
+    "first": "27 + 8",
+    "answer": 25,
+    "steps": [
+      "27 + 8 = 35",
+      "35 − 10 = 25"
+    ]
+  },
+  {
+    "id": 96,
+    "level": 3,
+    "expr": "70 − (5 + 10)",
+    "first": "5 + 10",
+    "answer": 55,
+    "steps": [
+      "5 + 10 = 15",
+      "70 − 15 = 55"
+    ]
+  },
+  {
+    "id": 97,
+    "level": 3,
+    "expr": "(33 + 12) − 4",
+    "first": "33 + 12",
+    "answer": 41,
+    "steps": [
+      "33 + 12 = 45",
+      "45 − 4 = 41"
+    ]
+  },
+  {
+    "id": 98,
+    "level": 3,
+    "expr": "76 − (9 + 6)",
+    "first": "9 + 6",
+    "answer": 61,
+    "steps": [
+      "9 + 6 = 15",
+      "76 − 15 = 61"
+    ]
+  },
+  {
+    "id": 99,
+    "level": 3,
+    "expr": "(39 + 4) − 8",
+    "first": "39 + 4",
+    "answer": 35,
+    "steps": [
+      "39 + 4 = 43",
+      "43 − 8 = 35"
+    ]
+  },
+  {
+    "id": 100,
+    "level": 3,
+    "expr": "82 − (13 + 10)",
+    "first": "13 + 10",
+    "answer": 59,
+    "steps": [
+      "13 + 10 = 23",
+      "82 − 23 = 59"
+    ]
+  },
+  {
+    "id": 101,
+    "level": 3,
+    "expr": "(15 + 8) − 2",
+    "first": "15 + 8",
+    "answer": 21,
+    "steps": [
+      "15 + 8 = 23",
+      "23 − 2 = 21"
+    ]
+  },
+  {
+    "id": 102,
+    "level": 3,
+    "expr": "58 − (7 + 6)",
+    "first": "7 + 6",
+    "answer": 45,
+    "steps": [
+      "7 + 6 = 13",
+      "58 − 13 = 45"
+    ]
+  },
+  {
+    "id": 103,
+    "level": 3,
+    "expr": "(21 + 12) − 6",
+    "first": "21 + 12",
+    "answer": 27,
+    "steps": [
+      "21 + 12 = 33",
+      "33 − 6 = 27"
+    ]
+  },
+  {
+    "id": 104,
+    "level": 3,
+    "expr": "64 − (11 + 10)",
+    "first": "11 + 10",
+    "answer": 43,
+    "steps": [
+      "11 + 10 = 21",
+      "64 − 21 = 43"
+    ]
+  },
+  {
+    "id": 105,
+    "level": 3,
+    "expr": "(27 + 4) − 10",
+    "first": "27 + 4",
+    "answer": 21,
+    "steps": [
+      "27 + 4 = 31",
+      "31 − 10 = 21"
+    ]
+  },
+  {
+    "id": 106,
+    "level": 3,
+    "expr": "70 − (5 + 6)",
+    "first": "5 + 6",
+    "answer": 59,
+    "steps": [
+      "5 + 6 = 11",
+      "70 − 11 = 59"
+    ]
+  },
+  {
+    "id": 107,
+    "level": 3,
+    "expr": "(33 + 8) − 4",
+    "first": "33 + 8",
+    "answer": 37,
+    "steps": [
+      "33 + 8 = 41",
+      "41 − 4 = 37"
+    ]
+  },
+  {
+    "id": 108,
+    "level": 3,
+    "expr": "76 − (9 + 10)",
+    "first": "9 + 10",
+    "answer": 57,
+    "steps": [
+      "9 + 10 = 19",
+      "76 − 19 = 57"
+    ]
+  },
+  {
+    "id": 109,
+    "level": 3,
+    "expr": "(39 + 12) − 8",
+    "first": "39 + 12",
+    "answer": 43,
+    "steps": [
+      "39 + 12 = 51",
+      "51 − 8 = 43"
+    ]
+  },
+  {
+    "id": 110,
+    "level": 3,
+    "expr": "82 − (13 + 6)",
+    "first": "13 + 6",
+    "answer": 63,
+    "steps": [
+      "13 + 6 = 19",
+      "82 − 19 = 63"
+    ]
+  },
+  {
+    "id": 111,
+    "level": 3,
+    "expr": "(15 + 4) − 2",
+    "first": "15 + 4",
+    "answer": 17,
+    "steps": [
+      "15 + 4 = 19",
+      "19 − 2 = 17"
+    ]
+  },
+  {
+    "id": 112,
+    "level": 3,
+    "expr": "58 − (7 + 10)",
+    "first": "7 + 10",
+    "answer": 41,
+    "steps": [
+      "7 + 10 = 17",
+      "58 − 17 = 41"
+    ]
+  },
+  {
+    "id": 113,
+    "level": 3,
+    "expr": "(21 + 8) − 6",
+    "first": "21 + 8",
+    "answer": 23,
+    "steps": [
+      "21 + 8 = 29",
+      "29 − 6 = 23"
+    ]
+  },
+  {
+    "id": 114,
+    "level": 3,
+    "expr": "64 − (11 + 6)",
+    "first": "11 + 6",
+    "answer": 47,
+    "steps": [
+      "11 + 6 = 17",
+      "64 − 17 = 47"
+    ]
+  },
+  {
+    "id": 115,
+    "level": 3,
+    "expr": "(27 + 12) − 10",
+    "first": "27 + 12",
+    "answer": 29,
+    "steps": [
+      "27 + 12 = 39",
+      "39 − 10 = 29"
+    ]
+  },
+  {
+    "id": 116,
+    "level": 3,
+    "expr": "70 − (5 + 10)",
+    "first": "5 + 10",
+    "answer": 55,
+    "steps": [
+      "5 + 10 = 15",
+      "70 − 15 = 55"
+    ]
+  },
+  {
+    "id": 117,
+    "level": 3,
+    "expr": "(33 + 4) − 4",
+    "first": "33 + 4",
+    "answer": 33,
+    "steps": [
+      "33 + 4 = 37",
+      "37 − 4 = 33"
+    ]
+  },
+  {
+    "id": 118,
+    "level": 3,
+    "expr": "76 − (9 + 6)",
+    "first": "9 + 6",
+    "answer": 61,
+    "steps": [
+      "9 + 6 = 15",
+      "76 − 15 = 61"
+    ]
+  },
+  {
+    "id": 119,
+    "level": 3,
+    "expr": "(39 + 8) − 8",
+    "first": "39 + 8",
+    "answer": 39,
+    "steps": [
+      "39 + 8 = 47",
+      "47 − 8 = 39"
+    ]
+  },
+  {
+    "id": 120,
+    "level": 3,
+    "expr": "82 − (13 + 10)",
+    "first": "13 + 10",
+    "answer": 59,
+    "steps": [
+      "13 + 10 = 23",
+      "82 − 23 = 59"
+    ]
+  },
+  {
+    "id": 121,
+    "level": 4,
+    "expr": "2 × 3 + 4",
+    "first": "2 × 3",
+    "answer": 10,
+    "steps": [
+      "2 × 3 = 6",
+      "6 + 4 = 10"
+    ]
+  },
+  {
+    "id": 122,
+    "level": 4,
+    "expr": "5 + 3 × 5",
+    "first": "3 × 5",
+    "answer": 20,
+    "steps": [
+      "3 × 5 = 15",
+      "15 + 5 = 20"
+    ]
+  },
+  {
+    "id": 123,
+    "level": 4,
+    "expr": "4 × 7 + 6",
+    "first": "4 × 7",
+    "answer": 34,
+    "steps": [
+      "4 × 7 = 28",
+      "28 + 6 = 34"
+    ]
+  },
+  {
+    "id": 124,
+    "level": 4,
+    "expr": "7 + 5 × 9",
+    "first": "5 × 9",
+    "answer": 52,
+    "steps": [
+      "5 × 9 = 45",
+      "45 + 7 = 52"
+    ]
+  },
+  {
+    "id": 125,
+    "level": 4,
+    "expr": "6 × 3 + 8",
+    "first": "6 × 3",
+    "answer": 26,
+    "steps": [
+      "6 × 3 = 18",
+      "18 + 8 = 26"
+    ]
+  },
+  {
+    "id": 126,
+    "level": 4,
+    "expr": "9 + 2 × 5",
+    "first": "2 × 5",
+    "answer": 19,
+    "steps": [
+      "2 × 5 = 10",
+      "10 + 9 = 19"
+    ]
+  },
+  {
+    "id": 127,
+    "level": 4,
+    "expr": "3 × 7 + 10",
+    "first": "3 × 7",
+    "answer": 31,
+    "steps": [
+      "3 × 7 = 21",
+      "21 + 10 = 31"
+    ]
+  },
+  {
+    "id": 128,
+    "level": 4,
+    "expr": "11 + 4 × 9",
+    "first": "4 × 9",
+    "answer": 47,
+    "steps": [
+      "4 × 9 = 36",
+      "36 + 11 = 47"
+    ]
+  },
+  {
+    "id": 129,
+    "level": 4,
+    "expr": "5 × 3 + 12",
+    "first": "5 × 3",
+    "answer": 27,
+    "steps": [
+      "5 × 3 = 15",
+      "15 + 12 = 27"
+    ]
+  },
+  {
+    "id": 130,
+    "level": 4,
+    "expr": "4 + 6 × 5",
+    "first": "6 × 5",
+    "answer": 34,
+    "steps": [
+      "6 × 5 = 30",
+      "30 + 4 = 34"
+    ]
+  },
+  {
+    "id": 131,
+    "level": 4,
+    "expr": "2 × 7 + 5",
+    "first": "2 × 7",
+    "answer": 19,
+    "steps": [
+      "2 × 7 = 14",
+      "14 + 5 = 19"
+    ]
+  },
+  {
+    "id": 132,
+    "level": 4,
+    "expr": "6 + 3 × 9",
+    "first": "3 × 9",
+    "answer": 33,
+    "steps": [
+      "3 × 9 = 27",
+      "27 + 6 = 33"
+    ]
+  },
+  {
+    "id": 133,
+    "level": 4,
+    "expr": "4 × 3 + 7",
+    "first": "4 × 3",
+    "answer": 19,
+    "steps": [
+      "4 × 3 = 12",
+      "12 + 7 = 19"
+    ]
+  },
+  {
+    "id": 134,
+    "level": 4,
+    "expr": "8 + 5 × 5",
+    "first": "5 × 5",
+    "answer": 33,
+    "steps": [
+      "5 × 5 = 25",
+      "25 + 8 = 33"
+    ]
+  },
+  {
+    "id": 135,
+    "level": 4,
+    "expr": "6 × 7 + 9",
+    "first": "6 × 7",
+    "answer": 51,
+    "steps": [
+      "6 × 7 = 42",
+      "42 + 9 = 51"
+    ]
+  },
+  {
+    "id": 136,
+    "level": 4,
+    "expr": "10 + 2 × 9",
+    "first": "2 × 9",
+    "answer": 28,
+    "steps": [
+      "2 × 9 = 18",
+      "18 + 10 = 28"
+    ]
+  },
+  {
+    "id": 137,
+    "level": 4,
+    "expr": "3 × 3 + 11",
+    "first": "3 × 3",
+    "answer": 20,
+    "steps": [
+      "3 × 3 = 9",
+      "9 + 11 = 20"
+    ]
+  },
+  {
+    "id": 138,
+    "level": 4,
+    "expr": "12 + 4 × 5",
+    "first": "4 × 5",
+    "answer": 32,
+    "steps": [
+      "4 × 5 = 20",
+      "20 + 12 = 32"
+    ]
+  },
+  {
+    "id": 139,
+    "level": 4,
+    "expr": "5 × 7 + 4",
+    "first": "5 × 7",
+    "answer": 39,
+    "steps": [
+      "5 × 7 = 35",
+      "35 + 4 = 39"
+    ]
+  },
+  {
+    "id": 140,
+    "level": 4,
+    "expr": "5 + 6 × 9",
+    "first": "6 × 9",
+    "answer": 59,
+    "steps": [
+      "6 × 9 = 54",
+      "54 + 5 = 59"
+    ]
+  },
+  {
+    "id": 141,
+    "level": 4,
+    "expr": "2 × 3 + 6",
+    "first": "2 × 3",
+    "answer": 12,
+    "steps": [
+      "2 × 3 = 6",
+      "6 + 6 = 12"
+    ]
+  },
+  {
+    "id": 142,
+    "level": 4,
+    "expr": "7 + 3 × 5",
+    "first": "3 × 5",
+    "answer": 22,
+    "steps": [
+      "3 × 5 = 15",
+      "15 + 7 = 22"
+    ]
+  },
+  {
+    "id": 143,
+    "level": 4,
+    "expr": "4 × 7 + 8",
+    "first": "4 × 7",
+    "answer": 36,
+    "steps": [
+      "4 × 7 = 28",
+      "28 + 8 = 36"
+    ]
+  },
+  {
+    "id": 144,
+    "level": 4,
+    "expr": "9 + 5 × 9",
+    "first": "5 × 9",
+    "answer": 54,
+    "steps": [
+      "5 × 9 = 45",
+      "45 + 9 = 54"
+    ]
+  },
+  {
+    "id": 145,
+    "level": 4,
+    "expr": "6 × 3 + 10",
+    "first": "6 × 3",
+    "answer": 28,
+    "steps": [
+      "6 × 3 = 18",
+      "18 + 10 = 28"
+    ]
+  },
+  {
+    "id": 146,
+    "level": 4,
+    "expr": "11 + 2 × 5",
+    "first": "2 × 5",
+    "answer": 21,
+    "steps": [
+      "2 × 5 = 10",
+      "10 + 11 = 21"
+    ]
+  },
+  {
+    "id": 147,
+    "level": 4,
+    "expr": "3 × 7 + 12",
+    "first": "3 × 7",
+    "answer": 33,
+    "steps": [
+      "3 × 7 = 21",
+      "21 + 12 = 33"
+    ]
+  },
+  {
+    "id": 148,
+    "level": 4,
+    "expr": "4 + 4 × 9",
+    "first": "4 × 9",
+    "answer": 40,
+    "steps": [
+      "4 × 9 = 36",
+      "36 + 4 = 40"
+    ]
+  },
+  {
+    "id": 149,
+    "level": 4,
+    "expr": "5 × 3 + 5",
+    "first": "5 × 3",
+    "answer": 20,
+    "steps": [
+      "5 × 3 = 15",
+      "15 + 5 = 20"
+    ]
+  },
+  {
+    "id": 150,
+    "level": 4,
+    "expr": "6 + 6 × 5",
+    "first": "6 × 5",
+    "answer": 36,
+    "steps": [
+      "6 × 5 = 30",
+      "30 + 6 = 36"
+    ]
+  },
+  {
+    "id": 151,
+    "level": 4,
+    "expr": "2 × 7 + 7",
+    "first": "2 × 7",
+    "answer": 21,
+    "steps": [
+      "2 × 7 = 14",
+      "14 + 7 = 21"
+    ]
+  },
+  {
+    "id": 152,
+    "level": 4,
+    "expr": "8 + 3 × 9",
+    "first": "3 × 9",
+    "answer": 35,
+    "steps": [
+      "3 × 9 = 27",
+      "27 + 8 = 35"
+    ]
+  },
+  {
+    "id": 153,
+    "level": 4,
+    "expr": "4 × 3 + 9",
+    "first": "4 × 3",
+    "answer": 21,
+    "steps": [
+      "4 × 3 = 12",
+      "12 + 9 = 21"
+    ]
+  },
+  {
+    "id": 154,
+    "level": 4,
+    "expr": "10 + 5 × 5",
+    "first": "5 × 5",
+    "answer": 35,
+    "steps": [
+      "5 × 5 = 25",
+      "25 + 10 = 35"
+    ]
+  },
+  {
+    "id": 155,
+    "level": 4,
+    "expr": "6 × 7 + 11",
+    "first": "6 × 7",
+    "answer": 53,
+    "steps": [
+      "6 × 7 = 42",
+      "42 + 11 = 53"
+    ]
+  },
+  {
+    "id": 156,
+    "level": 4,
+    "expr": "12 + 2 × 9",
+    "first": "2 × 9",
+    "answer": 30,
+    "steps": [
+      "2 × 9 = 18",
+      "18 + 12 = 30"
+    ]
+  },
+  {
+    "id": 157,
+    "level": 4,
+    "expr": "3 × 3 + 4",
+    "first": "3 × 3",
+    "answer": 13,
+    "steps": [
+      "3 × 3 = 9",
+      "9 + 4 = 13"
+    ]
+  },
+  {
+    "id": 158,
+    "level": 4,
+    "expr": "5 + 4 × 5",
+    "first": "4 × 5",
+    "answer": 25,
+    "steps": [
+      "4 × 5 = 20",
+      "20 + 5 = 25"
+    ]
+  },
+  {
+    "id": 159,
+    "level": 4,
+    "expr": "5 × 7 + 6",
+    "first": "5 × 7",
+    "answer": 41,
+    "steps": [
+      "5 × 7 = 35",
+      "35 + 6 = 41"
+    ]
+  },
+  {
+    "id": 160,
+    "level": 4,
+    "expr": "7 + 6 × 9",
+    "first": "6 × 9",
+    "answer": 61,
+    "steps": [
+      "6 × 9 = 54",
+      "54 + 7 = 61"
+    ]
+  },
+  {
+    "id": 161,
+    "level": 5,
+    "expr": "14 + 5",
+    "first": "14 + 5",
+    "answer": 19,
+    "steps": [
+      "14 + 5 = 19"
+    ],
+    "word": "W pudełku było 14 kredek. Dołożono 5. Ile jest teraz?",
+    "vn": "Trong hộp có 14 bút màu. Thêm 5 chiếc. Bây giờ có tất cả bao nhiêu chiếc?"
+  },
+  {
+    "id": 162,
+    "level": 5,
+    "expr": "34 − 7",
+    "first": "34 − 7",
+    "answer": 27,
+    "steps": [
+      "34 − 7 = 27"
+    ],
+    "word": "Maja miała 34 naklejek i dała 7 koleżance. Ile jej zostało?",
+    "vn": "Maja có 34 nhãn dán và tặng bạn 7 chiếc. Maja còn lại bao nhiêu chiếc?"
+  },
+  {
+    "id": 163,
+    "level": 5,
+    "expr": "4 × 5",
+    "first": "4 × 5",
+    "answer": 20,
+    "steps": [
+      "4 × 5 = 20"
+    ],
+    "word": "W 4 koszykach są po 5 jabłka. Ile jabłek jest razem?",
+    "vn": "Có 4 giỏ, mỗi giỏ có 5 quả táo. Có tất cả bao nhiêu quả táo?"
+  },
+  {
+    "id": 164,
+    "level": 5,
+    "expr": "30 : 5",
+    "first": "30 : 5",
+    "answer": 6,
+    "steps": [
+      "30 : 5 = 6"
+    ],
+    "word": "30 cukierków podzielono po równo między 5 dzieci. Ile dostało każde?",
+    "vn": "Có 30 viên kẹo chia đều cho 5 bạn. Mỗi bạn được bao nhiêu viên?"
+  },
+  {
+    "id": 165,
+    "level": 5,
+    "expr": "(32 + 13) − 12",
+    "first": "32 + 13",
+    "answer": 33,
+    "steps": [
+      "32 + 13 = 45",
+      "45 − 12 = 33"
+    ],
+    "word": "Olek miał 32 klocków. Dostał 13, a potem oddał 12. Ile ma teraz?",
+    "vn": "Olek có 32 khối xếp hình. Bạn ấy được thêm 13 khối rồi cho đi 12 khối. Bây giờ Olek còn bao nhiêu khối?"
+  },
+  {
+    "id": 166,
+    "level": 5,
+    "expr": "3 × 8 + 9",
+    "first": "3 × 8",
+    "answer": 33,
+    "steps": [
+      "3 × 8 = 24",
+      "24 + 9 = 33"
+    ],
+    "word": "W 3 pudełkach leży po 8 piłki. Obok są jeszcze 9. Ile jest piłek?",
+    "vn": "Có 3 hộp, mỗi hộp có 8 quả bóng. Bên ngoài còn 9 quả. Có tất cả bao nhiêu quả bóng?"
+  },
+  {
+    "id": 167,
+    "level": 5,
+    "expr": "26 + 17",
+    "first": "26 + 17",
+    "answer": 43,
+    "steps": [
+      "26 + 17 = 43"
+    ],
+    "word": "W pudełku było 26 kredek. Dołożono 17. Ile jest teraz?",
+    "vn": "Trong hộp có 26 bút màu. Thêm 17 chiếc. Bây giờ có tất cả bao nhiêu chiếc?"
+  },
+  {
+    "id": 168,
+    "level": 5,
+    "expr": "58 − 5",
+    "first": "58 − 5",
+    "answer": 53,
+    "steps": [
+      "58 − 5 = 53"
+    ],
+    "word": "Maja miała 58 naklejek i dała 5 koleżance. Ile jej zostało?",
+    "vn": "Maja có 58 nhãn dán và tặng bạn 5 chiếc. Maja còn lại bao nhiêu chiếc?"
+  },
+  {
+    "id": 169,
+    "level": 5,
+    "expr": "2 × 3",
+    "first": "2 × 3",
+    "answer": 6,
+    "steps": [
+      "2 × 3 = 6"
+    ],
+    "word": "W 2 koszykach są po 3 jabłka. Ile jabłek jest razem?",
+    "vn": "Có 2 giỏ, mỗi giỏ có 3 quả táo. Có tất cả bao nhiêu quả táo?"
+  },
+  {
+    "id": 170,
+    "level": 5,
+    "expr": "15 : 3",
+    "first": "15 : 3",
+    "answer": 5,
+    "steps": [
+      "15 : 3 = 5"
+    ],
+    "word": "15 cukierków podzielono po równo między 3 dzieci. Ile dostało każde?",
+    "vn": "Có 15 viên kẹo chia đều cho 3 bạn. Mỗi bạn được bao nhiêu viên?"
+  },
+  {
+    "id": 171,
+    "level": 5,
+    "expr": "(26 + 13) − 4",
+    "first": "26 + 13",
+    "answer": 35,
+    "steps": [
+      "26 + 13 = 39",
+      "39 − 4 = 35"
+    ],
+    "word": "Olek miał 26 klocków. Dostał 13, a potem oddał 4. Ile ma teraz?",
+    "vn": "Olek có 26 khối xếp hình. Bạn ấy được thêm 13 khối rồi cho đi 4 khối. Bây giờ Olek còn bao nhiêu khối?"
+  },
+  {
+    "id": 172,
+    "level": 5,
+    "expr": "5 × 8 + 8",
+    "first": "5 × 8",
+    "answer": 48,
+    "steps": [
+      "5 × 8 = 40",
+      "40 + 8 = 48"
+    ],
+    "word": "W 5 pudełkach leży po 8 piłki. Obok są jeszcze 8. Ile jest piłek?",
+    "vn": "Có 5 hộp, mỗi hộp có 8 quả bóng. Bên ngoài còn 8 quả. Có tất cả bao nhiêu quả bóng?"
+  },
+  {
+    "id": 173,
+    "level": 5,
+    "expr": "18 + 13",
+    "first": "18 + 13",
+    "answer": 31,
+    "steps": [
+      "18 + 13 = 31"
+    ],
+    "word": "W pudełku było 18 kredek. Dołożono 13. Ile jest teraz?",
+    "vn": "Trong hộp có 18 bút màu. Thêm 13 chiếc. Bây giờ có tất cả bao nhiêu chiếc?"
+  },
+  {
+    "id": 174,
+    "level": 5,
+    "expr": "42 − 17",
+    "first": "42 − 17",
+    "answer": 25,
+    "steps": [
+      "42 − 17 = 25"
+    ],
+    "word": "Maja miała 42 naklejek i dała 17 koleżance. Ile jej zostało?",
+    "vn": "Maja có 42 nhãn dán và tặng bạn 17 chiếc. Maja còn lại bao nhiêu chiếc?"
+  },
+  {
+    "id": 175,
+    "level": 5,
+    "expr": "4 × 9",
+    "first": "4 × 9",
+    "answer": 36,
+    "steps": [
+      "4 × 9 = 36"
+    ],
+    "word": "W 4 koszykach są po 9 jabłka. Ile jabłek jest razem?",
+    "vn": "Có 4 giỏ, mỗi giỏ có 9 quả táo. Có tất cả bao nhiêu quả táo?"
+  },
+  {
+    "id": 176,
+    "level": 5,
+    "expr": "20 : 5",
+    "first": "20 : 5",
+    "answer": 4,
+    "steps": [
+      "20 : 5 = 4"
+    ],
+    "word": "20 cukierków podzielono po równo między 5 dzieci. Ile dostało każde?",
+    "vn": "Có 20 viên kẹo chia đều cho 5 bạn. Mỗi bạn được bao nhiêu viên?"
+  },
+  {
+    "id": 177,
+    "level": 5,
+    "expr": "(20 + 13) − 6",
+    "first": "20 + 13",
+    "answer": 27,
+    "steps": [
+      "20 + 13 = 33",
+      "33 − 6 = 27"
+    ],
+    "word": "Olek miał 20 klocków. Dostał 13, a potem oddał 6. Ile ma teraz?",
+    "vn": "Olek có 20 khối xếp hình. Bạn ấy được thêm 13 khối rồi cho đi 6 khối. Bây giờ Olek còn bao nhiêu khối?"
+  },
+  {
+    "id": 178,
+    "level": 5,
+    "expr": "3 × 8 + 7",
+    "first": "3 × 8",
+    "answer": 31,
+    "steps": [
+      "3 × 8 = 24",
+      "24 + 7 = 31"
+    ],
+    "word": "W 3 pudełkach leży po 8 piłki. Obok są jeszcze 7. Ile jest piłek?",
+    "vn": "Có 3 hộp, mỗi hộp có 8 quả bóng. Bên ngoài còn 7 quả. Có tất cả bao nhiêu quả bóng?"
+  },
+  {
+    "id": 179,
+    "level": 5,
+    "expr": "30 + 9",
+    "first": "30 + 9",
+    "answer": 39,
+    "steps": [
+      "30 + 9 = 39"
+    ],
+    "word": "W pudełku było 30 kredek. Dołożono 9. Ile jest teraz?",
+    "vn": "Trong hộp có 30 bút màu. Thêm 9 chiếc. Bây giờ có tất cả bao nhiêu chiếc?"
+  },
+  {
+    "id": 180,
+    "level": 5,
+    "expr": "66 − 15",
+    "first": "66 − 15",
+    "answer": 51,
+    "steps": [
+      "66 − 15 = 51"
+    ],
+    "word": "Maja miała 66 naklejek i dała 15 koleżance. Ile jej zostało?",
+    "vn": "Maja có 66 nhãn dán và tặng bạn 15 chiếc. Maja còn lại bao nhiêu chiếc?"
+  },
+  {
+    "id": 181,
+    "level": 5,
+    "expr": "2 × 7",
+    "first": "2 × 7",
+    "answer": 14,
+    "steps": [
+      "2 × 7 = 14"
+    ],
+    "word": "W 2 koszykach są po 7 jabłka. Ile jabłek jest razem?",
+    "vn": "Có 2 giỏ, mỗi giỏ có 7 quả táo. Có tất cả bao nhiêu quả táo?"
+  },
+  {
+    "id": 182,
+    "level": 5,
+    "expr": "9 : 3",
+    "first": "9 : 3",
+    "answer": 3,
+    "steps": [
+      "9 : 3 = 3"
+    ],
+    "word": "9 cukierków podzielono po równo między 3 dzieci. Ile dostało każde?",
+    "vn": "Có 9 viên kẹo chia đều cho 3 bạn. Mỗi bạn được bao nhiêu viên?"
+  },
+  {
+    "id": 183,
+    "level": 5,
+    "expr": "(38 + 13) − 8",
+    "first": "38 + 13",
+    "answer": 43,
+    "steps": [
+      "38 + 13 = 51",
+      "51 − 8 = 43"
+    ],
+    "word": "Olek miał 38 klocków. Dostał 13, a potem oddał 8. Ile ma teraz?",
+    "vn": "Olek có 38 khối xếp hình. Bạn ấy được thêm 13 khối rồi cho đi 8 khối. Bây giờ Olek còn bao nhiêu khối?"
+  },
+  {
+    "id": 184,
+    "level": 5,
+    "expr": "5 × 8 + 6",
+    "first": "5 × 8",
+    "answer": 46,
+    "steps": [
+      "5 × 8 = 40",
+      "40 + 6 = 46"
+    ],
+    "word": "W 5 pudełkach leży po 8 piłki. Obok są jeszcze 6. Ile jest piłek?",
+    "vn": "Có 5 hộp, mỗi hộp có 8 quả bóng. Bên ngoài còn 6 quả. Có tất cả bao nhiêu quả bóng?"
+  },
+  {
+    "id": 185,
+    "level": 5,
+    "expr": "22 + 5",
+    "first": "22 + 5",
+    "answer": 27,
+    "steps": [
+      "22 + 5 = 27"
+    ],
+    "word": "W pudełku było 22 kredek. Dołożono 5. Ile jest teraz?",
+    "vn": "Trong hộp có 22 bút màu. Thêm 5 chiếc. Bây giờ có tất cả bao nhiêu chiếc?"
+  },
+  {
+    "id": 186,
+    "level": 5,
+    "expr": "50 − 13",
+    "first": "50 − 13",
+    "answer": 37,
+    "steps": [
+      "50 − 13 = 37"
+    ],
+    "word": "Maja miała 50 naklejek i dała 13 koleżance. Ile jej zostało?",
+    "vn": "Maja có 50 nhãn dán và tặng bạn 13 chiếc. Maja còn lại bao nhiêu chiếc?"
+  },
+  {
+    "id": 187,
+    "level": 5,
+    "expr": "4 × 5",
+    "first": "4 × 5",
+    "answer": 20,
+    "steps": [
+      "4 × 5 = 20"
+    ],
+    "word": "W 4 koszykach są po 5 jabłka. Ile jabłek jest razem?",
+    "vn": "Có 4 giỏ, mỗi giỏ có 5 quả táo. Có tất cả bao nhiêu quả táo?"
+  },
+  {
+    "id": 188,
+    "level": 5,
+    "expr": "45 : 5",
+    "first": "45 : 5",
+    "answer": 9,
+    "steps": [
+      "45 : 5 = 9"
+    ],
+    "word": "45 cukierków podzielono po równo między 5 dzieci. Ile dostało każde?",
+    "vn": "Có 45 viên kẹo chia đều cho 5 bạn. Mỗi bạn được bao nhiêu viên?"
+  },
+  {
+    "id": 189,
+    "level": 5,
+    "expr": "(32 + 13) − 10",
+    "first": "32 + 13",
+    "answer": 35,
+    "steps": [
+      "32 + 13 = 45",
+      "45 − 10 = 35"
+    ],
+    "word": "Olek miał 32 klocków. Dostał 13, a potem oddał 10. Ile ma teraz?",
+    "vn": "Olek có 32 khối xếp hình. Bạn ấy được thêm 13 khối rồi cho đi 10 khối. Bây giờ Olek còn bao nhiêu khối?"
+  },
+  {
+    "id": 190,
+    "level": 5,
+    "expr": "3 × 8 + 5",
+    "first": "3 × 8",
+    "answer": 29,
+    "steps": [
+      "3 × 8 = 24",
+      "24 + 5 = 29"
+    ],
+    "word": "W 3 pudełkach leży po 8 piłki. Obok są jeszcze 5. Ile jest piłek?",
+    "vn": "Có 3 hộp, mỗi hộp có 8 quả bóng. Bên ngoài còn 5 quả. Có tất cả bao nhiêu quả bóng?"
+  },
+  {
+    "id": 191,
+    "level": 5,
+    "expr": "14 + 17",
+    "first": "14 + 17",
+    "answer": 31,
+    "steps": [
+      "14 + 17 = 31"
+    ],
+    "word": "W pudełku było 14 kredek. Dołożono 17. Ile jest teraz?",
+    "vn": "Trong hộp có 14 bút màu. Thêm 17 chiếc. Bây giờ có tất cả bao nhiêu chiếc?"
+  },
+  {
+    "id": 192,
+    "level": 5,
+    "expr": "34 − 11",
+    "first": "34 − 11",
+    "answer": 23,
+    "steps": [
+      "34 − 11 = 23"
+    ],
+    "word": "Maja miała 34 naklejek i dała 11 koleżance. Ile jej zostało?",
+    "vn": "Maja có 34 nhãn dán và tặng bạn 11 chiếc. Maja còn lại bao nhiêu chiếc?"
+  },
+  {
+    "id": 193,
+    "level": 5,
+    "expr": "2 × 3",
+    "first": "2 × 3",
+    "answer": 6,
+    "steps": [
+      "2 × 3 = 6"
+    ],
+    "word": "W 2 koszykach są po 3 jabłka. Ile jabłek jest razem?",
+    "vn": "Có 2 giỏ, mỗi giỏ có 3 quả táo. Có tất cả bao nhiêu quả táo?"
+  },
+  {
+    "id": 194,
+    "level": 5,
+    "expr": "24 : 3",
+    "first": "24 : 3",
+    "answer": 8,
+    "steps": [
+      "24 : 3 = 8"
+    ],
+    "word": "24 cukierków podzielono po równo między 3 dzieci. Ile dostało każde?",
+    "vn": "Có 24 viên kẹo chia đều cho 3 bạn. Mỗi bạn được bao nhiêu viên?"
+  },
+  {
+    "id": 195,
+    "level": 5,
+    "expr": "(26 + 13) − 12",
+    "first": "26 + 13",
+    "answer": 27,
+    "steps": [
+      "26 + 13 = 39",
+      "39 − 12 = 27"
+    ],
+    "word": "Olek miał 26 klocków. Dostał 13, a potem oddał 12. Ile ma teraz?",
+    "vn": "Olek có 26 khối xếp hình. Bạn ấy được thêm 13 khối rồi cho đi 12 khối. Bây giờ Olek còn bao nhiêu khối?"
+  },
+  {
+    "id": 196,
+    "level": 5,
+    "expr": "5 × 8 + 4",
+    "first": "5 × 8",
+    "answer": 44,
+    "steps": [
+      "5 × 8 = 40",
+      "40 + 4 = 44"
+    ],
+    "word": "W 5 pudełkach leży po 8 piłki. Obok są jeszcze 4. Ile jest piłek?",
+    "vn": "Có 5 hộp, mỗi hộp có 8 quả bóng. Bên ngoài còn 4 quả. Có tất cả bao nhiêu quả bóng?"
+  },
+  {
+    "id": 197,
+    "level": 5,
+    "expr": "26 + 13",
+    "first": "26 + 13",
+    "answer": 39,
+    "steps": [
+      "26 + 13 = 39"
+    ],
+    "word": "W pudełku było 26 kredek. Dołożono 13. Ile jest teraz?",
+    "vn": "Trong hộp có 26 bút màu. Thêm 13 chiếc. Bây giờ có tất cả bao nhiêu chiếc?"
+  },
+  {
+    "id": 198,
+    "level": 5,
+    "expr": "58 − 9",
+    "first": "58 − 9",
+    "answer": 49,
+    "steps": [
+      "58 − 9 = 49"
+    ],
+    "word": "Maja miała 58 naklejek i dała 9 koleżance. Ile jej zostało?",
+    "vn": "Maja có 58 nhãn dán và tặng bạn 9 chiếc. Maja còn lại bao nhiêu chiếc?"
+  },
+  {
+    "id": 199,
+    "level": 5,
+    "expr": "4 × 9",
+    "first": "4 × 9",
+    "answer": 36,
+    "steps": [
+      "4 × 9 = 36"
+    ],
+    "word": "W 4 koszykach są po 9 jabłka. Ile jabłek jest razem?",
+    "vn": "Có 4 giỏ, mỗi giỏ có 9 quả táo. Có tất cả bao nhiêu quả táo?"
+  },
+  {
+    "id": 200,
+    "level": 5,
+    "expr": "35 : 5",
+    "first": "35 : 5",
+    "answer": 7,
+    "steps": [
+      "35 : 5 = 7"
+    ],
+    "word": "35 cukierków podzielono po równo między 5 dzieci. Ile dostało każde?",
+    "vn": "Có 35 viên kẹo chia đều cho 5 bạn. Mỗi bạn được bao nhiêu viên?"
+  }
+];
+const LEVELS4=[ ['🌱','Pierwsze kroki','Nhân trước cộng trừ'],['⭐','Mnożenie i dzielenie','Nhân chia từ trái sang phải'],['🪄','Magiczne nawiasy','Phép tính có ngoặc'],['🏰','Trudniejsze działania','Phép tính nhiều bước'],['📚','Zadania tekstowe','Toán có lời văn']];
+const LEVELS2=[ ['🌱','Dodawanie i odejmowanie','Cộng và trừ trong phạm vi 100'],['⭐','Mnożenie i dzielenie','Bảng nhân chia cơ bản'],['🪄','Działania w nawiasach','Phép tính trong ngoặc'],['🏰','Dwa działania','Phép tính hai bước'],['📚','Zadania tekstowe','Toán có lời văn']];
 const KEY='math_adventure_alo_v3';
-function fresh(){return {results:{},events:[],pin:'',unlocked:1,stars:0}}
-let state;try{state={...fresh(),...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{state=fresh()}
-let view='home',active=1,phase=0,chosen='',hints=0,wrong=0,finished=false,mode='child',filter='all';
+function freshProfile(){return {results:{},events:[],unlocked:1,stars:0}}
+function freshApp(){return {selectedGrade:null,pin:'',profiles:{'2':freshProfile(),'4':freshProfile()}}}
+let appState;try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&saved.profiles){appState={...freshApp(),...saved,profiles:{...freshApp().profiles,...saved.profiles}}}else if(saved){appState=freshApp();appState.pin=saved.pin||'';appState.selectedGrade=null;appState.profiles['4']={...freshProfile(),results:saved.results||{},events:saved.events||[],unlocked:saved.unlocked||1,stars:saved.stars||0}}else appState=freshApp()}catch{appState=freshApp()}
+let selectedGrade='4',BANK=BANK4,LEVELS=LEVELS4,state=appState.profiles['4'];
+let view='grades',active=1,phase=0,chosen='',hints=0,wrong=0,finished=false,mode='child',filter='all';
 const app=document.getElementById('app');
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch{alert('Nie udało się zapisać danych. / Không lưu được dữ liệu.')}}
+function activateGrade(g){selectedGrade=String(g);appState.selectedGrade=selectedGrade;state=appState.profiles[selectedGrade];BANK=selectedGrade==='2'?BANK2:BANK4;LEVELS=selectedGrade==='2'?LEVELS2:LEVELS4;save();view='home';filter='all';render()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(appState))}catch{alert('Nie udało się zapisać danych. / Không lưu được dữ liệu.')}}
 function vn(t){return `<div class="vn">${t}</div>`}function levelOf(n){return BANK[n-1].level}function fmtDate(s){return new Date(s).toLocaleString('pl-PL')}
 function mastered(id){return !!state.results[id]?.mastered}function doneCount(l){return BANK.filter(q=>(!l||q.level===l)&&mastered(q.id)).length}
 function setView(v){view=v;render();scrollTo(0,0)}
-function render(){app.className='view '+view;document.getElementById('parentBtn').textContent=mode==='parent'?'🔓':'🔒'; if(view==='home')home();else if(view==='list')list();else if(view==='quiz')quiz();else if(view==='parent')parent();}
-function home(){let total=doneCount();app.innerHTML=`<section class="card hero"><h1>Witaj, mała matematyczko! ✨</h1>${vn('Chào nhà toán học nhỏ! Mỗi ngày tiến bộ một chút nhé.') }<p>Zdobywaj gwiazdki, rozwiązuj zadania i odkrywaj kolejne krainy!${vn('Tích sao, giải bài tập và khám phá những vùng đất mới!')}</p><div class="row"><b>⭐ ${state.stars} gwiazdek${vn('⭐ '+state.stars+' ngôi sao')}</b><b>🏅 ${total}/200 zadań${vn(total+'/200 bài tập')}</b></div><div class="progress" style="margin-top:12px"><div style="width:${total/2}%"></div></div></section><section class="card"><h2>Wybierz krainę</h2>${vn('Chọn cấp độ học tập')}<div class="section">${LEVELS.map((l,i)=>`<div class="task" style="margin-bottom:9px"><div><b>${l[0]} ${l[1]}</b>${vn(l[2])}<small>${doneCount(i+1)}/40 zadań · ${doneCount(i+1)}/40 bài</small></div><button onclick="openLevel(${i+1})">Graj ▶${vn('Bắt đầu ▶')}</button></div>`).join('')}</div></section><div class="actions"><button class="secondary" onclick="setView('list')">📋 Lista 200 zadań ${vn('Danh sách 200 bài')}</button><button class="secondary" onclick="review()">🔁 Powtórz błędy ${vn('Ôn các câu sai')}</button></div>`}
+function render(){app.className='view '+view;document.getElementById('parentBtn').textContent=mode==='parent'?'🔓':'🔒';document.getElementById('gradeBtn').classList.toggle('hidden',view==='grades');document.getElementById('subTitle').textContent=view==='grades'?'Phiêu lưu toán học · Chọn lớp trước':`Phiêu lưu toán học · Lớp ${selectedGrade}`;if(view==='grades')gradePicker();else if(view==='home')home();else if(view==='list')list();else if(view==='quiz')quiz();else if(view==='parent')parent();}
+function gradePicker(){app.innerHTML=`<section class="card hero"><h1>Wybierz klasę ✨</h1>${vn('Chọn lớp của con để bắt đầu')}<p>Każde dziecko ma własne zadania i zapisane postępy.${vn('Mỗi bé có bộ bài và tiến độ riêng.')}</p></section><section class="card"><h2>Wybierz klasę / Chọn lớp</h2><div class="actions"><button onclick="activateGrade(2)">📘 Klasa 2${vn('Lớp 2')}</button><button onclick="activateGrade(4)">📗 Klasa 4${vn('Lớp 4')}</button></div></section>`}
+function home(){let total=doneCount();app.innerHTML=`<div class="row" style="grid-column:1/-1"><button class="secondary" onclick="setView('grades')">🔄 Zmień klasę${vn('Đổi lớp')}</button><span class="pill">Klasa ${selectedGrade} / Lớp ${selectedGrade}</span></div><section class="card hero"><h1>Witaj, mała matematyczko! ✨</h1>${vn('Chào nhà toán học nhỏ! Mỗi ngày tiến bộ một chút nhé.') }<p>Zdobywaj gwiazdki, rozwiązuj zadania i odkrywaj kolejne krainy!${vn('Tích sao, giải bài tập và khám phá những vùng đất mới!')}</p><div class="row"><b>⭐ ${state.stars} gwiazdek${vn('⭐ '+state.stars+' ngôi sao')}</b><b>🏅 ${total}/${BANK.length} zadań${vn(total+'/'+BANK.length+' bài tập')}</b></div><div class="progress" style="margin-top:12px"><div style="width:${total/2}%"></div></div></section><section class="card"><h2>Wybierz krainę</h2>${vn('Chọn cấp độ học tập')}<div class="section">${LEVELS.map((l,i)=>`<div class="task" style="margin-bottom:9px"><div><b>${l[0]} ${l[1]}</b>${vn(l[2])}<small>${doneCount(i+1)}/40 zadań · ${doneCount(i+1)}/40 bài</small></div><button onclick="openLevel(${i+1})">Graj ▶${vn('Bắt đầu ▶')}</button></div>`).join('')}</div></section><div class="actions"><button class="secondary" onclick="setView('list')">📋 Lista ${BANK.length} zadań ${vn('Danh sách '+BANK.length+' bài')}</button><button class="secondary" onclick="review()">🔁 Powtórz błędy ${vn('Ôn các câu sai')}</button></div>`}
 function openLevel(l){filter=String(l);setView('list')}
-function list(){let arr=BANK.filter(q=>filter==='all'||filter==='needs'&&state.results[q.id]?.errors>0&&!mastered(q.id)||String(q.level)===filter);app.innerHTML=`<section class="card"><div class="row"><div><h2>Lista zadań 📋</h2>${vn('Danh sách bài tập – chọn một bài để bắt đầu')}</div><button class="secondary" onclick="setView('home')">⌂ Start${vn('Trang chủ')}</button></div><select id="flt" style="width:100%;padding:12px;border-radius:12px;margin:12px 0" onchange="filter=this.value;render()"><option value="all">Wszystkie zadania / Tất cả bài tập (200)</option>${LEVELS.map((l,i)=>`<option value="${i+1}">${i+1}. ${l[1]} / ${l[2]} (40)</option>`).join('')}<option value="needs">Do powtórki / Cần ôn lại</option></select><div class="list">${arr.map(q=>`<button class="num ${mastered(q.id)?'mastered':state.results[q.id]?.errors?'needs':''}" onclick="start(${q.id})">${q.id}${mastered(q.id)?' ✓':''}</button>`).join('')||'<p>Brak zadań do powtórki! / Không có bài cần ôn! 🎉</p>'}</div><p class="muted" style="font-size:12px">🟢 Opanowane / Đã thành thạo · 🟠 Do powtórki / Cần ôn · 🔵 Nowe / Mới</p></section>`;document.getElementById('flt').value=filter}
+function list(){let arr=BANK.filter(q=>filter==='all'||filter==='needs'&&state.results[q.id]?.errors>0&&!mastered(q.id)||String(q.level)===filter);app.innerHTML=`<section class="card"><div class="row"><div><h2>Lista zadań 📋</h2>${vn('Danh sách bài tập – chọn một bài để bắt đầu')}</div><button class="secondary" onclick="setView('home')">⌂ Start${vn('Trang chủ')}</button></div><select id="flt" style="width:100%;padding:12px;border-radius:12px;margin:12px 0" onchange="filter=this.value;render()"><option value="all">Wszystkie zadania / Tất cả bài tập (${BANK.length})</option>${LEVELS.map((l,i)=>`<option value="${i+1}">${i+1}. ${l[1]} / ${l[2]} (40)</option>`).join('')}<option value="needs">Do powtórki / Cần ôn lại</option></select><div class="list">${arr.map(q=>`<button class="num ${mastered(q.id)?'mastered':state.results[q.id]?.errors?'needs':''}" onclick="start(${q.id})">${q.id}${mastered(q.id)?' ✓':''}</button>`).join('')||'<p>Brak zadań do powtórki! / Không có bài cần ôn! 🎉</p>'}</div><p class="muted" style="font-size:12px">🟢 Opanowane / Đã thành thạo · 🟠 Do powtórki / Cần ôn · 🔵 Nowe / Mới</p></section>`;document.getElementById('flt').value=filter}
 function review(){filter='needs';setView('list')}
 function start(id){active=id;phase=0;chosen='';hints=0;wrong=0;finished=false;setView('quiz')}
-function quiz(){const q=BANK[active-1],lev=LEVELS[q.level-1];let choicePool=[q.first,...findDistractors(q)];app.innerHTML=`<div class="row" style="margin-bottom:10px"><button class="secondary" onclick="setView('list')">← Lista zadań${vn('Danh sách bài')}</button><span class="pill">${lev[0]} ${lev[1]}<span class="vn">${lev[2]}</span> · ${active}/200</span></div><section class="card"><h2>Zadanie ${active}</h2>${vn('Bài số '+active)}${q.word?`<p style="font-size:21px;line-height:1.7">${q.word.replaceAll('<strong>','<strong class="key">')}</p>${vn(q.vn)}`:''}<div class="big">${q.expr} = ?</div><div class="progress"><div style="width:${phase===0?20:phase===1?60:100}%"></div></div><div id="quizBody" class="section"></div></section>`;quizBody(choicePool)}
+function quiz(){const q=BANK[active-1],lev=LEVELS[q.level-1];let choicePool=[q.first,...findDistractors(q)];app.innerHTML=`<div class="row" style="margin-bottom:10px"><button class="secondary" onclick="setView('list')">← Lista zadań${vn('Danh sách bài')}</button><span class="pill">${lev[0]} ${lev[1]}<span class="vn">${lev[2]}</span> · ${active}/${BANK.length}</span></div><section class="card"><h2>Zadanie ${active}</h2>${vn('Bài số '+active)}${q.word?`<p style="font-size:21px;line-height:1.7">${q.word.replaceAll('<strong>','<strong class="key">')}</p>${vn(q.vn)}`:''}<div class="big">${q.expr} = ?</div><div class="progress"><div style="width:${phase===0?20:phase===1?60:100}%"></div></div><div id="quizBody" class="section"></div></section>`;quizBody(choicePool)}
 function findDistractors(q){let all=BANK.filter(x=>x.id!==q.id&&x.level===q.level).map(x=>x.first);let res=[];for(let s of all){if(s!==q.first&&!res.includes(s))res.push(s);if(res.length===3)break}return res}
 function quizBody(pool){const q=BANK[active-1],el=document.getElementById('quizBody');if(phase===0){let opts=[...pool].sort((a,b)=>((a.length*13+a.charCodeAt(0)+active*7)%17)-((b.length*13+b.charCodeAt(0)+active*7)%17));el.innerHTML=`<h3>Co obliczamy najpierw?</h3>${vn('Phép tính nào cần làm trước?')}<div class="options section">${opts.map((o,i)=>`<button onclick="chooseFirst(${i})">${o}</button>`).join('')}</div><div class="note" id="feedback" style="display:none"></div><div class="actions"><button class="secondary" onclick="hint()">💡 Podpowiedź${vn('Gợi ý')}</button></div>`;window.opts=opts}
 else if(phase===1){el.innerHTML=`<h3>Oblicz wynik</h3>${vn('Tính kết quả')}<label for="result">Twoja odpowiedź / Đáp án của con</label><input id="result" inputmode="numeric" type="number" autocomplete="off" placeholder="Wpisz wynik / Nhập kết quả" onkeydown="if(event.key==='Enter')checkAnswer()"><div id="feedback" class="note" style="display:none"></div><div class="actions"><button class="secondary" onclick="hint()">💡 Podpowiedź${vn('Gợi ý')}</button><button onclick="checkAnswer()">Sprawdź ✓${vn('Kiểm tra ✓')}</button></div>`;document.getElementById('result').focus()}
-else{el.innerHTML=`<div class="note good"><h2>🎉 Brawo! Dobra robota!</h2>${vn('Giỏi lắm! Con đã hoàn thành bài.') }<b>⭐ ${wrong===0&&hints===0?20:10} punktów${vn('⭐ '+(wrong===0&&hints===0?20:10)+' điểm')}</b></div><h3 class="section">Rozwiązanie krok po kroku</h3>${vn('Lời giải từng bước')} ${q.steps.map((s,i)=>`<div class="step">${i+1}. ${s}</div>`).join('')}<div class="actions"><button class="secondary" onclick="setView('list')">📋 Lista${vn('Danh sách bài')}</button><button onclick="start(${active===200?1:active+1})">Następne zadanie →${vn('Bài tiếp theo →')}</button></div>`}}
+else{el.innerHTML=`<div class="note good"><h2>🎉 Brawo! Dobra robota!</h2>${vn('Giỏi lắm! Con đã hoàn thành bài.') }<b>⭐ ${wrong===0&&hints===0?20:10} punktów${vn('⭐ '+(wrong===0&&hints===0?20:10)+' điểm')}</b></div><h3 class="section">Rozwiązanie krok po kroku</h3>${vn('Lời giải từng bước')} ${q.steps.map((s,i)=>`<div class="step">${i+1}. ${s}</div>`).join('')}<div class="actions"><button class="secondary" onclick="setView('list')">📋 Lista${vn('Danh sách bài')}</button><button onclick="start(${active===BANK.length?1:active+1})">Następne zadanie →${vn('Bài tiếp theo →')}</button></div>`}}
 function chooseFirst(i){const q=BANK[active-1],o=window.opts[i];if(o===q.first){phase=1;quizBody();return}wrong++;record(false,'first',o);let f=document.getElementById('feedback');f.style.display='block';f.className='note bad';f.innerHTML=`<b>Spróbuj jeszcze raz! 🌼</b>${vn('Chưa đúng. Hãy thử lại.')}<p>${q.expr.includes('(')?'Najpierw obliczamy działanie w nawiasie.':'Mnożenie i dzielenie wykonujemy przed dodawaniem i odejmowaniem. Działania tego samego rzędu liczymy od lewej do prawej.'}</p>${vn(q.expr.includes('(')?'Tính trong ngoặc trước.':'Thực hiện nhân và chia trước cộng và trừ. Các phép tính cùng thứ tự được làm từ trái sang phải.')} `}
 function hint(){hints++;const q=BANK[active-1],f=document.getElementById('feedback');f.style.display='block';f.className='note';let s=phase===0?(q.expr.includes('(')?'Poszukaj nawiasu ( ).':'Najpierw mnożenie lub dzielenie; działania tego samego rzędu licz od lewej do prawej.'):hints<2?`Pierwszy krok: ${q.steps[0]}`:q.steps.slice(0,-1).join(' → ');let vi=phase===0?(q.expr.includes('(')?'Hãy tìm phép tính trong ngoặc.':'Nhân hoặc chia trước; các phép tính cùng thứ tự làm từ trái sang phải.'):hints<2?'Bước đầu tiên: '+q.steps[0]:'Xem các bước trung gian: '+q.steps.slice(0,-1).join(' → ');f.innerHTML=`<b>💡 Podpowiedź ${hints} / Gợi ý ${hints}</b><p>${s}</p>${vn(vi)}`}
 function record(ok,kind,given){let r=state.results[active]||{attempts:0,errors:0,mastered:false};r.attempts++;if(!ok)r.errors++;if(ok)r.mastered=true;r.last=new Date().toISOString();state.results[active]=r;state.events.push({id:active,ok,kind,given,at:r.last});if(state.events.length>2000)state.events=state.events.slice(-2000);save()}
 function checkAnswer(){let input=document.getElementById('result'),v=input.value.trim();if(!v)return;const q=BANK[active-1];if(Number(v)===q.answer){record(true,'answer',v);state.stars+=wrong===0&&hints===0?20:10;save();phase=2;quizBody();return}wrong++;record(false,'answer',v);let f=document.getElementById('feedback');f.style.display='block';f.className='note bad';let step=wrong===1?q.steps[0]:q.steps.slice(0,Math.min(wrong,q.steps.length-1)).join(' → ');f.innerHTML=`<b>Jeszcze nie! Spróbuj ponownie 🌼</b>${vn('Chưa đúng. Con thử lại nhé.')}<p><b>Wskazówka:</b> ${step}</p>${vn('Kiểm tra lại phép tính theo thứ tự. Không cần vội.')}`;input.select()}
-function parent(){if(mode!=='parent'){setView('home');return}let total=doneCount(),errors=Object.values(state.results).reduce((s,r)=>s+(r.errors||0),0);app.innerHTML=`<section class="card"><div class="row"><div><h2>🔐 Panel rodzica</h2>${vn('Khu vực theo dõi dành cho bố mẹ')}</div><button class="secondary" onclick="mode='child';setView('home')">Zamknij 🔒${vn('Đóng 🔒')}</button></div><div class="grid section"><div class="stat"><b>${total}/200</b>Opanowane${vn('Đã thành thạo')}</div><div class="stat"><b>${state.stars}</b>Gwiazdki${vn('Ngôi sao')}</div><div class="stat"><b>${errors}</b>Błędy${vn('Số lần sai')}</div><div class="stat"><b>${state.events.length}</b>Próby${vn('Lượt làm')}</div></div><h3 class="section">Postępy według poziomu</h3>${vn('Tiến độ theo cấp độ')}${LEVELS.map((l,i)=>`<div style="margin:12px 0"><div class="row"><b>${l[0]} ${l[1]}${vn(l[2])}</b><span>${doneCount(i+1)}/40</span></div><div class="progress"><div style="width:${doneCount(i+1)*2.5}%"></div></div></div>`).join('')}<h3 class="section">Ostatnie odpowiedzi</h3>${vn('Các câu trả lời gần đây')}<div style="overflow:auto"><table><thead><tr><th>Data / Ngày</th><th>Nr / Số</th><th>Wynik / Kết quả</th><th>Odpowiedź / Câu trả lời</th></tr></thead><tbody>${state.events.slice(-30).reverse().map(e=>`<tr><td>${fmtDate(e.at)}</td><td>${e.id}</td><td>${e.ok?'✓':'✕'}</td><td>${String(e.given).replace(/[&<>"']/g,'')}</td></tr>`).join('')}</tbody></table></div><div class="actions"><button class="secondary" onclick="exportCSV()">⬇ Eksport CSV${vn('Tải CSV')}</button><button class="secondary" onclick="changePIN()">🔑 Zmień PIN${vn('Đổi PIN')}</button></div><div class="actions"><button class="outline" onclick="resetProgress()">Usuń postępy${vn('Xóa kết quả')}</button></div></section>`}
+function parent(){if(mode!=='parent'){setView('home');return}let total=doneCount(),errors=Object.values(state.results).reduce((s,r)=>s+(r.errors||0),0);app.innerHTML=`<section class="card"><div class="row"><div><h2>🔐 Panel rodzica</h2>${vn('Khu vực theo dõi dành cho bố mẹ')}</div><button class="secondary" onclick="mode='child';setView('home')">Zamknij 🔒${vn('Đóng 🔒')}</button></div><div class="grid section"><div class="stat"><b>${total}/${BANK.length}</b>Opanowane${vn('Đã thành thạo')}</div><div class="stat"><b>${state.stars}</b>Gwiazdki${vn('Ngôi sao')}</div><div class="stat"><b>${errors}</b>Błędy${vn('Số lần sai')}</div><div class="stat"><b>${state.events.length}</b>Próby${vn('Lượt làm')}</div></div><h3 class="section">Postępy według poziomu</h3>${vn('Tiến độ theo cấp độ')}${LEVELS.map((l,i)=>`<div style="margin:12px 0"><div class="row"><b>${l[0]} ${l[1]}${vn(l[2])}</b><span>${doneCount(i+1)}/40</span></div><div class="progress"><div style="width:${doneCount(i+1)*2.5}%"></div></div></div>`).join('')}<h3 class="section">Ostatnie odpowiedzi</h3>${vn('Các câu trả lời gần đây')}<div style="overflow:auto"><table><thead><tr><th>Data / Ngày</th><th>Nr / Số</th><th>Wynik / Kết quả</th><th>Odpowiedź / Câu trả lời</th></tr></thead><tbody>${state.events.slice(-30).reverse().map(e=>`<tr><td>${fmtDate(e.at)}</td><td>${e.id}</td><td>${e.ok?'✓':'✕'}</td><td>${String(e.given).replace(/[&<>"']/g,'')}</td></tr>`).join('')}</tbody></table></div><div class="actions"><button class="secondary" onclick="exportCSV()">⬇ Eksport CSV${vn('Tải CSV')}</button><button class="secondary" onclick="changePIN()">🔑 Zmień PIN${vn('Đổi PIN')}</button></div><div class="actions"><button class="outline" onclick="resetProgress()">Usuń postępy${vn('Xóa kết quả')}</button></div></section>`}
 function exportCSV(){let rows=[['Data / Ngày','Zadanie / Bài','Poprawnie / Đúng','Rodzaj / Dạng','Odpowiedź / Trả lời'],...state.events.map(e=>[e.at,e.id,e.ok,e.kind,String(e.given)])];let csv='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\r\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='math-adventure-results.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-function changePIN(){let p=prompt('Nowy PIN (4–8 cyfr) / Đặt PIN mới (4–8 chữ số):');if(p===null)return;if(!/^\d{4,8}$/.test(p)){alert('PIN musi mieć 4–8 cyfr. / PIN cần có 4–8 chữ số.');return}state.pin=p;save();alert('PIN zapisany. / Đã lưu PIN.')}
+function changePIN(){let p=prompt('Nowy PIN (4–8 cyfr) / Đặt PIN mới (4–8 chữ số):');if(p===null)return;if(!/^\d{4,8}$/.test(p)){alert('PIN musi mieć 4–8 cyfr. / PIN cần có 4–8 chữ số.');return}appState.pin=p;save();alert('PIN zapisany. / Đã lưu PIN.')}
 function resetProgress(){if(confirm('Usunąć wszystkie wyniki? / Xóa toàn bộ kết quả?')){state.results={};state.events=[];state.stars=0;save();render()}}
-document.getElementById('parentBtn').addEventListener('click',()=>{if(mode==='parent'){setView('parent');return}if(!state.pin){alert('Pierwsze uruchomienie: ustaw PIN rodzica. / Lần đầu: hãy đặt PIN cho bố mẹ.');let p=prompt('Ustaw PIN rodzica (4–8 cyfr) / Đặt PIN bố mẹ (4–8 chữ số):');if(p===null)return;if(!/^\d{4,8}$/.test(p)){alert('PIN musi mieć 4–8 cyfr. / PIN cần có 4–8 chữ số.');return}state.pin=p;save();mode='parent';setView('parent');return}let p=prompt('PIN rodzica / Nhập mã PIN bố mẹ:');if(p===state.pin){mode='parent';setView('parent')}else if(p!==null)alert('Nieprawidłowy PIN / Mã PIN không đúng')});
+document.getElementById('parentBtn').addEventListener('click',()=>{if(mode==='parent'){setView('parent');return}if(!appState.pin){alert('Pierwsze uruchomienie: ustaw PIN rodzica. / Lần đầu: hãy đặt PIN cho bố mẹ.');let p=prompt('Ustaw PIN rodzica (4–8 cyfr) / Đặt PIN bố mẹ (4–8 chữ số):');if(p===null)return;if(!/^\d{4,8}$/.test(p)){alert('PIN musi mieć 4–8 cyfr. / PIN cần có 4–8 chữ số.');return}appState.pin=p;save();mode='parent';setView('parent');return}let p=prompt('PIN rodzica / Nhập mã PIN bố mẹ:');if(p===appState.pin){mode='parent';setView('parent')}else if(p!==null)alert('Nieprawidłowy PIN / Mã PIN không đúng')});
 render();
 </script></body></html>
