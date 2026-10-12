@@ -18,6 +18,6 @@ A Polish–Vietnamese math app for children in grades 2 and 4. Choose a grade be
 
 ## Data · Dữ liệu
 
-Each grade's progress and stars are stored separately in that browser's local storage. The parent PIN is shared by both grades and stored on that device. Data does not synchronize between devices. The PIN is an accidental-entry guard in the app UI, not strong authentication. CSV export is available in the parent panel.
+On first use, a parent sets a PIN and chooses the grade. The PIN is required to change grades or open the results panel. Each grade's progress and stars are stored separately in that browser's local storage; the PIN is shared by both grades. Data does not synchronize between devices. The PIN protects the app's parent controls on that device. CSV export is available in the parent panel.
 
-Tiến độ và số sao của mỗi lớp được lưu riêng trong bộ nhớ trình duyệt. PIN bố mẹ dùng chung cho hai lớp và được lưu trên thiết bị đó. Dữ liệu không đồng bộ giữa các thiết bị. PIN chỉ giúp tránh bé vô tình mở khu vực quản lý, không phải xác thực bảo mật cao. Có thể xuất CSV trong khu vực bố mẹ.
+Khi dùng lần đầu, bố mẹ đặt PIN rồi chọn lớp. Cần PIN để đổi lớp hoặc mở khu vực xem kết quả. Tiến độ và số sao của từng lớp được lưu riêng trong trình duyệt; PIN dùng chung cho hai lớp. Dữ liệu không đồng bộ giữa các thiết bị. Có thể xuất CSV trong khu vực bố mẹ.
