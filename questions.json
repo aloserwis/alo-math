@@ -1343,5 +1343,1349 @@
     ],
     "word": "Od <strong>iloczynu</strong> liczb 7 i 7 <strong>odejmij</strong> 32.",
     "vn": "Lấy tích 7 và 7, trừ đi 32."
+  },
+  {
+    "level": 1,
+    "expr": "64 + 3 × 8",
+    "answer": 88,
+    "first": "3 × 8",
+    "steps": [
+      "3 × 8 = 24",
+      "64 + 24 = 88"
+    ],
+    "id": 101,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "145 − 9 × 7",
+    "answer": 82,
+    "first": "9 × 7",
+    "steps": [
+      "9 × 7 = 63",
+      "145 − 63 = 82"
+    ],
+    "id": 102,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "38 + 6 × 9",
+    "answer": 92,
+    "first": "6 × 9",
+    "steps": [
+      "6 × 9 = 54",
+      "38 + 54 = 92"
+    ],
+    "id": 103,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "117 − 8 × 8",
+    "answer": 53,
+    "first": "8 × 8",
+    "steps": [
+      "8 × 8 = 64",
+      "117 − 64 = 53"
+    ],
+    "id": 104,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "27 + 7 × 6",
+    "answer": 69,
+    "first": "7 × 6",
+    "steps": [
+      "7 × 6 = 42",
+      "27 + 42 = 69"
+    ],
+    "id": 105,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "96 − 9 × 5",
+    "answer": 51,
+    "first": "9 × 5",
+    "steps": [
+      "9 × 5 = 45",
+      "96 − 45 = 51"
+    ],
+    "id": 106,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "58 + 4 × 8",
+    "answer": 90,
+    "first": "4 × 8",
+    "steps": [
+      "4 × 8 = 32",
+      "58 + 32 = 90"
+    ],
+    "id": 107,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "124 − 6 × 9",
+    "answer": 70,
+    "first": "6 × 9",
+    "steps": [
+      "6 × 9 = 54",
+      "124 − 54 = 70"
+    ],
+    "id": 108,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "43 + 8 × 7",
+    "answer": 99,
+    "first": "8 × 7",
+    "steps": [
+      "8 × 7 = 56",
+      "43 + 56 = 99"
+    ],
+    "id": 109,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "150 − 7 × 8",
+    "answer": 94,
+    "first": "7 × 8",
+    "steps": [
+      "7 × 8 = 56",
+      "150 − 56 = 94"
+    ],
+    "id": 110,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "35 + 9 × 6",
+    "answer": 89,
+    "first": "9 × 6",
+    "steps": [
+      "9 × 6 = 54",
+      "35 + 54 = 89"
+    ],
+    "id": 111,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "108 − 5 × 9",
+    "answer": 63,
+    "first": "5 × 9",
+    "steps": [
+      "5 × 9 = 45",
+      "108 − 45 = 63"
+    ],
+    "id": 112,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "72 + 7 × 8",
+    "answer": 128,
+    "first": "7 × 8",
+    "steps": [
+      "7 × 8 = 56",
+      "72 + 56 = 128"
+    ],
+    "id": 113,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "133 − 8 × 7",
+    "answer": 77,
+    "first": "8 × 7",
+    "steps": [
+      "8 × 7 = 56",
+      "133 − 56 = 77"
+    ],
+    "id": 114,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "46 + 6 × 6",
+    "answer": 82,
+    "first": "6 × 6",
+    "steps": [
+      "6 × 6 = 36",
+      "46 + 36 = 82"
+    ],
+    "id": 115,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "121 − 9 × 8",
+    "answer": 49,
+    "first": "9 × 8",
+    "steps": [
+      "9 × 8 = 72",
+      "121 − 72 = 49"
+    ],
+    "id": 116,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "29 + 5 × 9",
+    "answer": 74,
+    "first": "5 × 9",
+    "steps": [
+      "5 × 9 = 45",
+      "29 + 45 = 74"
+    ],
+    "id": 117,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "97 − 7 × 6",
+    "answer": 55,
+    "first": "7 × 6",
+    "steps": [
+      "7 × 6 = 42",
+      "97 − 42 = 55"
+    ],
+    "id": 118,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "63 + 8 × 9",
+    "answer": 135,
+    "first": "8 × 9",
+    "steps": [
+      "8 × 9 = 72",
+      "63 + 72 = 135"
+    ],
+    "id": 119,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 1,
+    "expr": "140 − 6 × 8",
+    "answer": 92,
+    "first": "6 × 8",
+    "steps": [
+      "6 × 8 = 48",
+      "140 − 48 = 92"
+    ],
+    "id": 120,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "84 : 7 + 5 × 6",
+    "answer": 42,
+    "first": "84 : 7",
+    "steps": [
+      "84 : 7 = 12",
+      "5 × 6 = 30",
+      "12 + 30 = 42"
+    ],
+    "id": 121,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "96 : 8 × 3 − 4",
+    "answer": 32,
+    "first": "96 : 8",
+    "steps": [
+      "96 : 8 = 12",
+      "12 × 3 = 36",
+      "36 − 4 = 32"
+    ],
+    "id": 122,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "72 : 9 + 8 × 7",
+    "answer": 64,
+    "first": "72 : 9",
+    "steps": [
+      "72 : 9 = 8",
+      "8 × 7 = 56",
+      "8 + 56 = 64"
+    ],
+    "id": 123,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "64 : 8 × 5 − 6",
+    "answer": 34,
+    "first": "64 : 8",
+    "steps": [
+      "64 : 8 = 8",
+      "8 × 5 = 40",
+      "40 − 6 = 34"
+    ],
+    "id": 124,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "90 : 10 + 4 × 9",
+    "answer": 45,
+    "first": "90 : 10",
+    "steps": [
+      "90 : 10 = 9",
+      "4 × 9 = 36",
+      "9 + 36 = 45"
+    ],
+    "id": 125,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "81 : 9 × 6 − 7",
+    "answer": 47,
+    "first": "81 : 9",
+    "steps": [
+      "81 : 9 = 9",
+      "9 × 6 = 54",
+      "54 − 7 = 47"
+    ],
+    "id": 126,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "56 : 7 + 3 × 8",
+    "answer": 32,
+    "first": "56 : 7",
+    "steps": [
+      "56 : 7 = 8",
+      "3 × 8 = 24",
+      "8 + 24 = 32"
+    ],
+    "id": 127,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "48 : 6 × 7 − 5",
+    "answer": 51,
+    "first": "48 : 6",
+    "steps": [
+      "48 : 6 = 8",
+      "8 × 7 = 56",
+      "56 − 5 = 51"
+    ],
+    "id": 128,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "100 : 10 + 6 × 7",
+    "answer": 52,
+    "first": "100 : 10",
+    "steps": [
+      "100 : 10 = 10",
+      "6 × 7 = 42",
+      "10 + 42 = 52"
+    ],
+    "id": 129,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "63 : 7 × 8 − 9",
+    "answer": 63,
+    "first": "63 : 7",
+    "steps": [
+      "63 : 7 = 9",
+      "9 × 8 = 72",
+      "72 − 9 = 63"
+    ],
+    "id": 130,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "54 : 6 + 9 × 5",
+    "answer": 54,
+    "first": "54 : 6",
+    "steps": [
+      "54 : 6 = 9",
+      "9 × 5 = 45",
+      "9 + 45 = 54"
+    ],
+    "id": 131,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "42 : 7 × 4 − 3",
+    "answer": 21,
+    "first": "42 : 7",
+    "steps": [
+      "42 : 7 = 6",
+      "6 × 4 = 24",
+      "24 − 3 = 21"
+    ],
+    "id": 132,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "120 : 10 + 7 × 8",
+    "answer": 68,
+    "first": "120 : 10",
+    "steps": [
+      "120 : 10 = 12",
+      "7 × 8 = 56",
+      "12 + 56 = 68"
+    ],
+    "id": 133,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "45 : 5 × 9 − 6",
+    "answer": 75,
+    "first": "45 : 5",
+    "steps": [
+      "45 : 5 = 9",
+      "9 × 9 = 81",
+      "81 − 6 = 75"
+    ],
+    "id": 134,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "88 : 8 + 5 × 9",
+    "answer": 56,
+    "first": "88 : 8",
+    "steps": [
+      "88 : 8 = 11",
+      "5 × 9 = 45",
+      "11 + 45 = 56"
+    ],
+    "id": 135,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "36 : 6 × 7 − 2",
+    "answer": 40,
+    "first": "36 : 6",
+    "steps": [
+      "36 : 6 = 6",
+      "6 × 7 = 42",
+      "42 − 2 = 40"
+    ],
+    "id": 136,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "108 : 9 + 4 × 6",
+    "answer": 36,
+    "first": "108 : 9",
+    "steps": [
+      "108 : 9 = 12",
+      "4 × 6 = 24",
+      "12 + 24 = 36"
+    ],
+    "id": 137,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "70 : 7 × 5 − 8",
+    "answer": 42,
+    "first": "70 : 7",
+    "steps": [
+      "70 : 7 = 10",
+      "10 × 5 = 50",
+      "50 − 8 = 42"
+    ],
+    "id": 138,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "80 : 8 + 6 × 9",
+    "answer": 64,
+    "first": "80 : 8",
+    "steps": [
+      "80 : 8 = 10",
+      "6 × 9 = 54",
+      "10 + 54 = 64"
+    ],
+    "id": 139,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 2,
+    "expr": "96 : 12 × 4 − 5",
+    "answer": 27,
+    "first": "96 : 12",
+    "steps": [
+      "96 : 12 = 8",
+      "8 × 4 = 32",
+      "32 − 5 = 27"
+    ],
+    "id": 140,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(35 + 13) × 4",
+    "answer": 192,
+    "first": "35 + 13",
+    "steps": [
+      "35 + 13 = 48",
+      "48 × 4 = 192"
+    ],
+    "id": 141,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(58 − 22) × 3",
+    "answer": 108,
+    "first": "58 − 22",
+    "steps": [
+      "58 − 22 = 36",
+      "36 × 3 = 108"
+    ],
+    "id": 142,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(27 + 18) × 5",
+    "answer": 225,
+    "first": "27 + 18",
+    "steps": [
+      "27 + 18 = 45",
+      "45 × 5 = 225"
+    ],
+    "id": 143,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(76 − 28) × 4",
+    "answer": 192,
+    "first": "76 − 28",
+    "steps": [
+      "76 − 28 = 48",
+      "48 × 4 = 192"
+    ],
+    "id": 144,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(46 + 14) × 6",
+    "answer": 360,
+    "first": "46 + 14",
+    "steps": [
+      "46 + 14 = 60",
+      "60 × 6 = 360"
+    ],
+    "id": 145,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(91 − 35) × 7",
+    "answer": 392,
+    "first": "91 − 35",
+    "steps": [
+      "91 − 35 = 56",
+      "56 × 7 = 392"
+    ],
+    "id": 146,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(39 + 25) × 3",
+    "answer": 192,
+    "first": "39 + 25",
+    "steps": [
+      "39 + 25 = 64",
+      "64 × 3 = 192"
+    ],
+    "id": 147,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(68 − 32) × 5",
+    "answer": 180,
+    "first": "68 − 32",
+    "steps": [
+      "68 − 32 = 36",
+      "36 × 5 = 180"
+    ],
+    "id": 148,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(17 + 19) × 8",
+    "answer": 288,
+    "first": "17 + 19",
+    "steps": [
+      "17 + 19 = 36",
+      "36 × 8 = 288"
+    ],
+    "id": 149,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(83 − 47) × 4",
+    "answer": 144,
+    "first": "83 − 47",
+    "steps": [
+      "83 − 47 = 36",
+      "36 × 4 = 144"
+    ],
+    "id": 150,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(52 + 28) × 6",
+    "answer": 480,
+    "first": "52 + 28",
+    "steps": [
+      "52 + 28 = 80",
+      "80 × 6 = 480"
+    ],
+    "id": 151,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(99 − 54) × 5",
+    "answer": 225,
+    "first": "99 − 54",
+    "steps": [
+      "99 − 54 = 45",
+      "45 × 5 = 225"
+    ],
+    "id": 152,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(44 + 36) × 2",
+    "answer": 160,
+    "first": "44 + 36",
+    "steps": [
+      "44 + 36 = 80",
+      "80 × 2 = 160"
+    ],
+    "id": 153,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(73 − 29) × 8",
+    "answer": 352,
+    "first": "73 − 29",
+    "steps": [
+      "73 − 29 = 44",
+      "44 × 8 = 352"
+    ],
+    "id": 154,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(26 + 34) × 7",
+    "answer": 420,
+    "first": "26 + 34",
+    "steps": [
+      "26 + 34 = 60",
+      "60 × 7 = 420"
+    ],
+    "id": 155,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(88 − 43) × 3",
+    "answer": 135,
+    "first": "88 − 43",
+    "steps": [
+      "88 − 43 = 45",
+      "45 × 3 = 135"
+    ],
+    "id": 156,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(61 + 19) × 9",
+    "answer": 720,
+    "first": "61 + 19",
+    "steps": [
+      "61 + 19 = 80",
+      "80 × 9 = 720"
+    ],
+    "id": 157,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(95 − 57) × 6",
+    "answer": 228,
+    "first": "95 − 57",
+    "steps": [
+      "95 − 57 = 38",
+      "38 × 6 = 228"
+    ],
+    "id": 158,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(33 + 27) × 4",
+    "answer": 240,
+    "first": "33 + 27",
+    "steps": [
+      "33 + 27 = 60",
+      "60 × 4 = 240"
+    ],
+    "id": 159,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 3,
+    "expr": "(120 − 72) × 5",
+    "answer": 240,
+    "first": "120 − 72",
+    "steps": [
+      "120 − 72 = 48",
+      "48 × 5 = 240"
+    ],
+    "id": 160,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "42 + (6 × 7 − 8)",
+    "answer": 76,
+    "first": "6 × 7",
+    "steps": [
+      "6 × 7 = 42",
+      "42 − 8 = 34",
+      "42 + 34 = 76"
+    ],
+    "id": 161,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "115 − (5 × 8 + 12)",
+    "answer": 63,
+    "first": "5 × 8",
+    "steps": [
+      "5 × 8 = 40",
+      "40 + 12 = 52",
+      "115 − 52 = 63"
+    ],
+    "id": 162,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "31 + (9 × 6 − 7)",
+    "answer": 78,
+    "first": "9 × 6",
+    "steps": [
+      "9 × 6 = 54",
+      "54 − 7 = 47",
+      "31 + 47 = 78"
+    ],
+    "id": 163,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "130 − (7 × 9 + 15)",
+    "answer": 52,
+    "first": "7 × 9",
+    "steps": [
+      "7 × 9 = 63",
+      "63 + 15 = 78",
+      "130 − 78 = 52"
+    ],
+    "id": 164,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "54 + (8 × 5 − 11)",
+    "answer": 83,
+    "first": "8 × 5",
+    "steps": [
+      "8 × 5 = 40",
+      "40 − 11 = 29",
+      "54 + 29 = 83"
+    ],
+    "id": 165,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "140 − (6 × 9 + 18)",
+    "answer": 68,
+    "first": "6 × 9",
+    "steps": [
+      "6 × 9 = 54",
+      "54 + 18 = 72",
+      "140 − 72 = 68"
+    ],
+    "id": 166,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "27 + (7 × 8 − 9)",
+    "answer": 74,
+    "first": "7 × 8",
+    "steps": [
+      "7 × 8 = 56",
+      "56 − 9 = 47",
+      "27 + 47 = 74"
+    ],
+    "id": 167,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "160 − (9 × 8 + 14)",
+    "answer": 74,
+    "first": "9 × 8",
+    "steps": [
+      "9 × 8 = 72",
+      "72 + 14 = 86",
+      "160 − 86 = 74"
+    ],
+    "id": 168,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "63 + (5 × 9 − 13)",
+    "answer": 95,
+    "first": "5 × 9",
+    "steps": [
+      "5 × 9 = 45",
+      "45 − 13 = 32",
+      "63 + 32 = 95"
+    ],
+    "id": 169,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "150 − (8 × 7 + 16)",
+    "answer": 78,
+    "first": "8 × 7",
+    "steps": [
+      "8 × 7 = 56",
+      "56 + 16 = 72",
+      "150 − 72 = 78"
+    ],
+    "id": 170,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "48 + (6 × 8 − 10)",
+    "answer": 86,
+    "first": "6 × 8",
+    "steps": [
+      "6 × 8 = 48",
+      "48 − 10 = 38",
+      "48 + 38 = 86"
+    ],
+    "id": 171,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "125 − (4 × 9 + 17)",
+    "answer": 72,
+    "first": "4 × 9",
+    "steps": [
+      "4 × 9 = 36",
+      "36 + 17 = 53",
+      "125 − 53 = 72"
+    ],
+    "id": 172,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "36 + (7 × 7 − 12)",
+    "answer": 73,
+    "first": "7 × 7",
+    "steps": [
+      "7 × 7 = 49",
+      "49 − 12 = 37",
+      "36 + 37 = 73"
+    ],
+    "id": 173,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "145 − (9 × 9 + 20)",
+    "answer": 44,
+    "first": "9 × 9",
+    "steps": [
+      "9 × 9 = 81",
+      "81 + 20 = 101",
+      "145 − 101 = 44"
+    ],
+    "id": 174,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "52 + (8 × 6 − 14)",
+    "answer": 86,
+    "first": "8 × 6",
+    "steps": [
+      "8 × 6 = 48",
+      "48 − 14 = 34",
+      "52 + 34 = 86"
+    ],
+    "id": 175,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "170 − (7 × 8 + 19)",
+    "answer": 95,
+    "first": "7 × 8",
+    "steps": [
+      "7 × 8 = 56",
+      "56 + 19 = 75",
+      "170 − 75 = 95"
+    ],
+    "id": 176,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "25 + (9 × 9 − 16)",
+    "answer": 90,
+    "first": "9 × 9",
+    "steps": [
+      "9 × 9 = 81",
+      "81 − 16 = 65",
+      "25 + 65 = 90"
+    ],
+    "id": 177,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "155 − (6 × 8 + 13)",
+    "answer": 94,
+    "first": "6 × 8",
+    "steps": [
+      "6 × 8 = 48",
+      "48 + 13 = 61",
+      "155 − 61 = 94"
+    ],
+    "id": 178,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "67 + (5 × 7 − 18)",
+    "answer": 84,
+    "first": "5 × 7",
+    "steps": [
+      "5 × 7 = 35",
+      "35 − 18 = 17",
+      "67 + 17 = 84"
+    ],
+    "id": 179,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 4,
+    "expr": "180 − (9 × 7 + 21)",
+    "answer": 96,
+    "first": "9 × 7",
+    "steps": [
+      "9 × 7 = 63",
+      "63 + 21 = 84",
+      "180 − 84 = 96"
+    ],
+    "id": 180,
+    "word": null,
+    "vn": null
+  },
+  {
+    "level": 5,
+    "expr": "6 × 8 − 13",
+    "answer": 35,
+    "first": "6 × 8",
+    "steps": [
+      "6 × 8 = 48",
+      "48 − 13 = 35"
+    ],
+    "word": "W 6 pudełkach jest po 8 kredek. 13 kredek <strong>rozdano</strong>. Ile kredek zostało?",
+    "vn": "Có 6 hộp, mỗi hộp có 8 bút màu. Đã <strong>phát</strong> 13 chiếc. Còn lại bao nhiêu bút màu?",
+    "id": 181
+  },
+  {
+    "level": 5,
+    "expr": "4 × 9 + 12",
+    "answer": 48,
+    "first": "4 × 9",
+    "steps": [
+      "4 × 9 = 36",
+      "36 + 12 = 48"
+    ],
+    "word": "Do każdej z 4 skrzynek włożono po 9 jabłek. Potem dodano jeszcze 12 jabłek. Ile jabłek jest razem?",
+    "vn": "Mỗi một trong 4 thùng có 9 quả táo. Sau đó thêm 12 quả táo. Có tất cả bao nhiêu quả táo?",
+    "id": 182
+  },
+  {
+    "level": 5,
+    "expr": "(72 − 48) × 3",
+    "answer": 72,
+    "first": "72 − 48",
+    "steps": [
+      "72 − 48 = 24",
+      "24 × 3 = 72"
+    ],
+    "word": "<strong>Różnicę</strong> liczb 72 i 48 <strong>pomnóż</strong> przez 3.",
+    "vn": "Lấy <strong>hiệu</strong> của 72 và 48, rồi <strong>nhân</strong> với 3.",
+    "id": 183
+  },
+  {
+    "level": 5,
+    "expr": "63 : 7 + 15",
+    "answer": 24,
+    "first": "63 : 7",
+    "steps": [
+      "63 : 7 = 9",
+      "9 + 15 = 24"
+    ],
+    "word": "Do <strong>ilorazu</strong> liczb 63 i 7 <strong>dodaj</strong> 15.",
+    "vn": "Lấy <strong>thương</strong> của 63 và 7, rồi <strong>cộng</strong> 15.",
+    "id": 184
+  },
+  {
+    "level": 5,
+    "expr": "5 × 6 + 3 × 4",
+    "answer": 42,
+    "first": "5 × 6",
+    "steps": [
+      "5 × 6 = 30",
+      "3 × 4 = 12",
+      "30 + 12 = 42"
+    ],
+    "word": "5 paczek ma po 6 naklejek, a 3 paczki po 4 naklejki. Ile naklejek jest razem?",
+    "vn": "Có 5 gói, mỗi gói 6 nhãn dán và 3 gói, mỗi gói 4 nhãn dán. Có tất cả bao nhiêu nhãn dán?",
+    "id": 185
+  },
+  {
+    "level": 5,
+    "expr": "(8 × 9 − 18) : 6",
+    "answer": 9,
+    "first": "8 × 9",
+    "steps": [
+      "8 × 9 = 72",
+      "72 − 18 = 54",
+      "54 : 6 = 9"
+    ],
+    "word": "<strong>Różnicę</strong> iloczynu liczb 8 i 9 oraz 18 <strong>podziel</strong> przez 6.",
+    "vn": "Lấy <strong>hiệu</strong> giữa tích của 8 và 9 với 18, rồi <strong>chia</strong> cho 6.",
+    "id": 186
+  },
+  {
+    "level": 5,
+    "expr": "96 : 8 + 5",
+    "answer": 17,
+    "first": "96 : 8",
+    "steps": [
+      "96 : 8 = 12",
+      "12 + 5 = 17"
+    ],
+    "word": "96 koralików rozdzielono po równo do 8 woreczków. Do każdego woreczka dodano jeszcze po 5 koralików. Ile koralików jest w jednym woreczku?",
+    "vn": "96 hạt cườm được chia đều vào 8 túi. Mỗi túi được thêm 5 hạt nữa. Mỗi túi có bao nhiêu hạt?",
+    "id": 187
+  },
+  {
+    "level": 5,
+    "expr": "100 − (7 × 6)",
+    "answer": 58,
+    "first": "7 × 6",
+    "steps": [
+      "7 × 6 = 42",
+      "100 − 42 = 58"
+    ],
+    "word": "Zosia miała przeczytać 100 stron. Przeczytała już 7 razy po 6 stron. Ile stron zostało jej do przeczytania?",
+    "vn": "Zosia cần đọc 100 trang. Bạn ấy đã đọc 7 lần, mỗi lần 6 trang. Còn phải đọc bao nhiêu trang?",
+    "id": 188
+  },
+  {
+    "level": 5,
+    "expr": "(24 + 16) × 3",
+    "answer": 120,
+    "first": "24 + 16",
+    "steps": [
+      "24 + 16 = 40",
+      "40 × 3 = 120"
+    ],
+    "word": "Dla 3 klas przygotowano zestawy. Każdy zestaw ma 24 czerwone i 16 niebieskich kart. Ile kart przygotowano?",
+    "vn": "Chuẩn bị bộ thẻ cho 3 lớp. Mỗi bộ có 24 thẻ đỏ và 16 thẻ xanh. Đã chuẩn bị tất cả bao nhiêu thẻ?",
+    "id": 189
+  },
+  {
+    "level": 5,
+    "expr": "8 × 7 − 12",
+    "answer": 44,
+    "first": "8 × 7",
+    "steps": [
+      "8 × 7 = 56",
+      "56 − 12 = 44"
+    ],
+    "word": "8 drużyn liczy po 7 zawodników. 12 zawodników nie przyszło. Ilu zawodników przyszło?",
+    "vn": "Có 8 đội, mỗi đội 7 vận động viên. 12 người vắng mặt. Có bao nhiêu vận động viên đã đến?",
+    "id": 190
+  },
+  {
+    "level": 5,
+    "expr": "54 : 6 + 15",
+    "answer": 24,
+    "first": "54 : 6",
+    "steps": [
+      "54 : 6 = 9",
+      "9 + 15 = 24"
+    ],
+    "word": "54 książki rozłożono po równo na 6 półkach. Na każdej półce dołożono jeszcze po 15 książek. Ile książek jest na jednej półce?",
+    "vn": "54 quyển sách được chia đều lên 6 kệ. Mỗi kệ được đặt thêm 15 quyển. Mỗi kệ có bao nhiêu quyển sách?",
+    "id": 191
+  },
+  {
+    "level": 5,
+    "expr": "4 × 8 − 7",
+    "answer": 25,
+    "first": "4 × 8",
+    "steps": [
+      "4 × 8 = 32",
+      "32 − 7 = 25"
+    ],
+    "word": "W 4 pudełkach było po 8 klocków. Zabrano 7 klocków. Ile klocków zostało?",
+    "vn": "Có 4 hộp, mỗi hộp 8 khối gỗ. Lấy ra 7 khối. Còn lại bao nhiêu khối gỗ?",
+    "id": 192
+  },
+  {
+    "level": 5,
+    "expr": "3 × 12 + 3 × 8",
+    "answer": 60,
+    "first": "3 × 12",
+    "steps": [
+      "3 × 12 = 36",
+      "3 × 8 = 24",
+      "36 + 24 = 60"
+    ],
+    "word": "W 3 koszach jest po 12 gruszek, a w 3 skrzynkach po 8 gruszek. Ile gruszek jest razem?",
+    "vn": "Có 3 giỏ, mỗi giỏ 12 quả lê và 3 thùng, mỗi thùng 8 quả lê. Có tất cả bao nhiêu quả lê?",
+    "id": 193
+  },
+  {
+    "level": 5,
+    "expr": "90 − 42 + 4 × 6",
+    "answer": 72,
+    "first": "4 × 6",
+    "steps": [
+      "4 × 6 = 24",
+      "90 − 42 = 48",
+      "48 + 24 = 72"
+    ],
+    "word": "Do <strong>różnicy</strong> liczb 90 i 42 <strong>dodaj</strong> iloczyn liczb 4 i 6.",
+    "vn": "Lấy <strong>hiệu</strong> của 90 và 42, rồi <strong>cộng</strong> với tích của 4 và 6.",
+    "id": 194
+  },
+  {
+    "level": 5,
+    "expr": "7 × 6 + 8",
+    "answer": 50,
+    "first": "7 × 6",
+    "steps": [
+      "7 × 6 = 42",
+      "42 + 8 = 50"
+    ],
+    "word": "W 7 koszykach jest po 6 gruszek. Na stole leży jeszcze 8 gruszek. Ile gruszek jest razem?",
+    "vn": "Có 7 giỏ, mỗi giỏ 6 quả lê. Trên bàn còn có thêm 8 quả. Có tất cả bao nhiêu quả lê?",
+    "id": 195
+  },
+  {
+    "level": 5,
+    "expr": "120 : 10 + 2",
+    "answer": 14,
+    "first": "120 : 10",
+    "steps": [
+      "120 : 10 = 12",
+      "12 + 2 = 14"
+    ],
+    "word": "120 kart rozdzielono po równo między 10 dzieci. Każde dziecko dostało jeszcze po 2 karty. Ile kart ma każde dziecko?",
+    "vn": "120 tấm thẻ được chia đều cho 10 bạn nhỏ. Mỗi bạn được thêm 2 tấm nữa. Mỗi bạn có bao nhiêu tấm thẻ?",
+    "id": 196
+  },
+  {
+    "level": 5,
+    "expr": "(32 + 16) : 6",
+    "answer": 8,
+    "first": "32 + 16",
+    "steps": [
+      "32 + 16 = 48",
+      "48 : 6 = 8"
+    ],
+    "word": "<strong>Sumę</strong> liczb 32 i 16 <strong>podziel</strong> przez 6.",
+    "vn": "Lấy <strong>tổng</strong> của 32 và 16 rồi <strong>chia</strong> cho 6.",
+    "id": 197
+  },
+  {
+    "level": 5,
+    "expr": "(100 − 28) : 9",
+    "answer": 8,
+    "first": "100 − 28",
+    "steps": [
+      "100 − 28 = 72",
+      "72 : 9 = 8"
+    ],
+    "word": "<strong>Różnicę</strong> liczb 100 i 28 <strong>podziel</strong> przez 9.",
+    "vn": "Lấy <strong>hiệu</strong> của 100 và 28 rồi <strong>chia</strong> cho 9.",
+    "id": 198
+  },
+  {
+    "level": 5,
+    "expr": "(65 − 45) × 3",
+    "answer": 60,
+    "first": "65 − 45",
+    "steps": [
+      "65 − 45 = 20",
+      "20 × 3 = 60"
+    ],
+    "word": "<strong>Różnicę</strong> liczb 65 i 45 <strong>pomnóż</strong> przez 3.",
+    "vn": "Lấy <strong>hiệu</strong> của 65 và 45, rồi <strong>nhân</strong> với 3.",
+    "id": 199
+  },
+  {
+    "level": 5,
+    "expr": "5 × 9 + 14",
+    "answer": 59,
+    "first": "5 × 9",
+    "steps": [
+      "5 × 9 = 45",
+      "45 + 14 = 59"
+    ],
+    "word": "W 5 pudełkach jest po 9 piłek. Obok leży jeszcze 14 piłek. Ile piłek jest razem?",
+    "vn": "Có 5 hộp, mỗi hộp 9 quả bóng. Bên cạnh còn có 14 quả bóng. Có tất cả bao nhiêu quả bóng?",
+    "id": 200
   }
 ]
