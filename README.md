@@ -1,6 +1,3 @@
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
 # Math Adventure V3
 
 Polish–Vietnamese grade 4 math practice app with 100 fixed questions, step-by-step hints, saved progress, a parent area protected by a PIN, and CSV export.
