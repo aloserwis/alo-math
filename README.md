@@ -18,9 +18,9 @@ A Polish–Vietnamese math app for children in grades 2 and 4. Parents create an
 
 ## Data · Dữ liệu
 
-On first use, a parent creates an email and password account, confirms the email with a 6-digit OTP, then sets a PIN and chooses the grade. The PIN is required to change grades or open the results panel. Both grade profiles are saved to the authenticated account in Supabase and sync across devices. Learning progress is not saved in browser local storage; the parent PIN stays on each device. The PWA shell and Supabase login session may still be stored by the browser. PDF export is available in the parent panel.
+On first use, a parent creates an email and password account, confirms the email with a 8-digit OTP, then sets a PIN and chooses the grade. The PIN is required to change grades or open the results panel. Both grade profiles are saved to the authenticated account in Supabase and sync across devices. Learning progress is not saved in browser local storage; the parent PIN stays on each device. The PWA shell and Supabase login session may still be stored by the browser. PDF export is available in the parent panel.
 
-Khi dùng lần đầu, bố mẹ đăng ký tài khoản bằng email và mật khẩu, xác nhận email bằng OTP 6 số, rồi đặt PIN và chọn lớp. Cần PIN để đổi lớp hoặc mở khu vực xem kết quả. Hai hồ sơ lớp được lưu vào tài khoản Supabase và đồng bộ giữa các thiết bị. Tiến độ học không lưu trong local storage của trình duyệt; PIN vẫn chỉ lưu trên từng thiết bị. Trình duyệt vẫn có thể lưu bộ giao diện PWA và phiên đăng nhập Supabase. Báo cáo PDF có trong khu vực phụ huynh.
+Khi dùng lần đầu, bố mẹ đăng ký tài khoản bằng email và mật khẩu, xác nhận email bằng OTP 8 số, rồi đặt PIN và chọn lớp. Cần PIN để đổi lớp hoặc mở khu vực xem kết quả. Hai hồ sơ lớp được lưu vào tài khoản Supabase và đồng bộ giữa các thiết bị. Tiến độ học không lưu trong local storage của trình duyệt; PIN vẫn chỉ lưu trên từng thiết bị. Trình duyệt vẫn có thể lưu bộ giao diện PWA và phiên đăng nhập Supabase. Báo cáo PDF có trong khu vực phụ huynh.
 
 ## Cloud setup · Cấu hình đồng bộ
 
@@ -28,9 +28,9 @@ The Supabase project uses the public publishable key in the browser. The `math_a
 
 Mã publishable công khai của Supabase được dùng trong trình duyệt. Bảng `math_adventure_state` bật RLS để mỗi tài khoản chỉ truy cập dữ liệu của chính mình. Không đưa khóa `service_role` hoặc mật khẩu cơ sở dữ liệu vào repository.
 
-The SQL migration is in `supabase/migrations/`. In Supabase Auth, set the Site URL to `https://math.aloserwis.com` and allow that domain as a redirect. Registration activation uses the Confirm sign up template with `{{ .Token }}` and custom SMTP. The Magic link or OTP template also uses `{{ .Token }}` for six-digit sign-in codes.
+The SQL migration is in `supabase/migrations/`. In Supabase Auth, set the Site URL to `https://math.aloserwis.com` and allow that domain as a redirect. Registration activation uses the Confirm sign up template with `{{ .Token }}` and custom SMTP. The Magic link or OTP template also uses `{{ .Token }}` for eight-digit sign-in codes.
 
-Migration SQL nằm trong `supabase/migrations/`. Trong Supabase Auth, đặt Site URL là `https://math.aloserwis.com` và cho phép domain này chuyển hướng. Mẫu Confirm sign up cần có `{{ .Token }}` và SMTP riêng để gửi mã kích hoạt 6 số. Mẫu Magic link or OTP cũng dùng `{{ .Token }}` cho mã đăng nhập.
+Migration SQL nằm trong `supabase/migrations/`. Trong Supabase Auth, đặt Site URL là `https://math.aloserwis.com` và cho phép domain này chuyển hướng. Mẫu Confirm sign up cần có `{{ .Token }}` và SMTP riêng để gửi mã kích hoạt 8 số. Mẫu Magic link or OTP cũng dùng `{{ .Token }}` cho mã đăng nhập.
 
 PIN bố mẹ bảo vệ các chức năng phụ huynh trên thiết bị đó; PIN không đồng bộ. Kết quả được xuất thành PDF trong khu vực bố mẹ.
 
