@@ -268,7 +268,6 @@ render = function () {
 };
 
 async function initMathCloud() {
-  if (!window.mathAppShouldRender) return;
   if (!mathCloud) {
     mathCloudMessage = 'Nie można załadować logowania. Sprawdź połączenie internetowe. / Không tải được dịch vụ đăng nhập. Hãy kiểm tra mạng.';
     renderAuthGate();
@@ -294,4 +293,5 @@ window.addEventListener('focus', () => { if (mathCloudUser && mathCloudReady) vo
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible' && mathCloudUser && mathCloudReady) void mathCloudSync();
 });
+renderAuthGate();
 void initMathCloud();
