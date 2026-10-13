@@ -21,3 +21,10 @@ A Polish–Vietnamese math app for children in grades 2 and 4. Choose a grade be
 On first use, a parent sets a PIN and chooses the grade. The PIN is required to change grades or open the results panel. Each grade's progress and stars are stored separately in that browser's local storage; the PIN is shared by both grades. Data does not synchronize between devices. The PIN protects the app's parent controls on that device. CSV export is available in the parent panel.
 
 Khi dùng lần đầu, bố mẹ đặt PIN rồi chọn lớp. Cần PIN để đổi lớp hoặc mở khu vực xem kết quả. Tiến độ và số sao của từng lớp được lưu riêng trong trình duyệt; PIN dùng chung cho hai lớp. Dữ liệu không đồng bộ giữa các thiết bị. Có thể xuất CSV trong khu vực bố mẹ.
+
+
+## Install · Cài đặt
+
+The app is a Progressive Web App. On iPhone or iPad, open it in Safari, tap the install icon in the header, then use Share → Add to Home Screen. On Android, tap the install icon when it appears or choose Install app from the browser menu. The app shell is cached for offline use; when online, each opening checks the latest version.
+
+Ứng dụng hỗ trợ cài như PWA. Trên iPhone hoặc iPad, mở bằng Safari, nhấn biểu tượng cài đặt ở đầu trang, rồi chọn Chia sẻ → Thêm vào Màn hình chính. Trên Android, nhấn biểu tượng cài đặt khi xuất hiện hoặc chọn Cài đặt ứng dụng trong menu trình duyệt. Phần giao diện được lưu để dùng ngoại tuyến; khi có mạng, ứng dụng kiểm tra bản mới mỗi lần mở.

@@ -1,0 +1,31 @@
+{
+  "id": "/",
+  "name": "Matematyczna Przygoda · Math Adventure",
+  "short_name": "Math Adventure",
+  "description": "Dwujęzyczna matematyczna przygoda dla klas 2 i 4 / Trò chơi toán song ngữ cho lớp 2 và lớp 4",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f3f5ff",
+  "theme_color": "#4b58d1",
+  "lang": "pl",
+  "categories": [
+    "education",
+    "games"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
