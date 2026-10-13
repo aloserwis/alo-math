@@ -4968,4 +4968,4 @@ const languageAlert=window.alert.bind(window),languageConfirm=window.confirm.bin
 const renderWithLanguageBase=render;render=function(){const result=renderWithLanguageBase.apply(this,arguments);applyLanguageMode();return result};
 applyLanguageMode();new MutationObserver(()=>{if(!window.mathLanguageUpdateQueued){window.mathLanguageUpdateQueued=true;queueMicrotask(()=>{window.mathLanguageUpdateQueued=false;applyLanguageMode()})}}).observe(document.getElementById('app'),{subtree:true,childList:true,characterData:true});window.addEventListener('resize',applyLanguageMode);window.addEventListener('orientationchange',applyLanguageMode);
 window.mathAppShouldRender=shouldRenderCurrentPage();
-</script><script src="./cloud.js?v=20261013-language"></script></body></html>
+</script><script src="./cloud.js?v=20261013-language-cleanup2"></script></body></html>
