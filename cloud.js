@@ -102,7 +102,7 @@ async function mathCloudSync() {
     try { localStorage.removeItem(KEY); } catch {}
     mathCloudLegacyPending = false;
     mathCloudReady = true;
-    mathCloudMessage = 'Đã kết nối và lưu tiến độ trên đám mây / Połączono i zapisano postępy w chmurze';
+    mathCloudMessage = '';
     return true;
   } catch (error) {
     mathCloudMessage = 'Không kết nối được dữ liệu: ' + (error.message || 'kiểm tra kết nối') + ' / Nie udało się połączyć danych';
@@ -118,7 +118,7 @@ function mathCloudQueue() {
   clearTimeout(mathCloudSaveTimer);
   mathCloudSaveTimer = setTimeout(() => mathCloudWrite()
     .then(() => {
-      mathCloudMessage = 'Đã lưu lên đám mây / Zapisano w chmurze';
+      mathCloudMessage = '';
       renderCloudPanel();
     })
     .catch(error => {
@@ -181,7 +181,7 @@ function mathCloudShowForgotPassword() {
 async function mathCloudSendRecovery() {
   const email = document.getElementById('mathCloudEmail')?.value.trim();
   mathCloudEmailDraft = email || '';
-  if (!email || !/^\\S+@\\S+\\.\\S+$/.test(email)) {
+  if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
     mathCloudMessage = 'Wpisz prawidłowy e-mail / Hãy nhập email hợp lệ';
     renderAuthGate();
     return;
@@ -335,7 +335,7 @@ async function mathCloudSignOut() {
 function renderCloudPanel() {
   const box = document.getElementById('mathCloudPanel');
   if (!box) return;
-  box.innerHTML = `<div class="card" style="margin-top:18px"><h3>${pairedLanguageHTML('☁️ Konto i synchronizacja rodzica / Tài khoản và đồng bộ')}</h3>${vn('Kết quả học được lưu trên tài khoản để bố mẹ xem trên thiết bị khác. PIN bố mẹ chỉ lưu trên thiết bị này.')}${mathCloudUser ? `<p><b>${pairedLanguageHTML('Konto / Tài khoản')}:</b> ${cloudEscape(mathCloudUser.email || '')}</p><p class="muted">${pairedLanguageHTML(mathCloudMessage)}${mathCloudLastSync ? ' · ' + cloudEscape(mathCloudLastSync) : ''}</p>` : ''}<div class="actions"><button class="secondary" onclick="mathCloudSync()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('↻ Synchronizuj teraz / Đồng bộ ngay')}</button><button class="outline" onclick="mathCloudSignOut()">${pairedLanguageHTML('Wyloguj / Đăng xuất tài khoản')}</button></div></div>`;
+  box.innerHTML = `<div class="card" style="margin-top:18px"><h3>${pairedLanguageHTML('☁️ Konto i synchronizacja rodzica / Tài khoản và đồng bộ')}</h3>${mathCloudUser ? `<p><b>${pairedLanguageHTML('Konto / Tài khoản')}:</b> ${cloudEscape(mathCloudUser.email || '')}</p>${mathCloudMessage ? `<p class="muted">${pairedLanguageHTML(mathCloudMessage)}</p>` : ''}` : ''}<div class="actions"><button class="secondary" onclick="mathCloudSync()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('↻ Synchronizuj teraz / Đồng bộ ngay')}</button><button class="outline" onclick="mathCloudSignOut()">${pairedLanguageHTML('Wyloguj / Đăng xuất tài khoản')}</button></div></div>`;
 }
 
 const renderParentPanelBeforeCloud = parent;
