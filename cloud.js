@@ -1,21 +1,20 @@
 let mathCloudUser = null;
-let mathCloudMessage = 'Chưa kết nối tài khoản / Konto niepołączone';
+let mathCloudReady = false;
 let mathCloudBusy = false;
 let mathCloudPaused = false;
 let mathCloudSaveTimer = 0;
 let mathCloudLastSync = '';
 let mathCloudEmailDraft = '';
 let mathCloudCodeDraft = '';
+let mathCloudAuthMode = 'register';
+let mathCloudAuthStep = 'credentials';
+let mathCloudMessage = '';
+let mathCloudLegacyPending = true;
 
 function cloudEscape(text) {
   return String(text ?? '').replace(/[&<>"']/g, ch => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[ch]));
-}
-
-function cloudMessage(text, isError = false) {
-  mathCloudMessage = (isError ? '⚠️ ' : '✓ ') + text;
-  renderCloudPanel();
 }
 
 function cloudSafeState() {
@@ -29,17 +28,16 @@ function cloudSafeState() {
 
 function mergeCloudState(remote) {
   if (!remote || typeof remote !== 'object') return;
-  const local = appState.profiles || {};
-  const incoming = remote.profiles || {};
+  const localProfiles = appState.profiles || {};
+  const incomingProfiles = remote.profiles || {};
   for (const grade of ['2', '4']) {
-    const a = local[grade] || freshProfile();
-    const b = incoming[grade] || freshProfile();
-    const results = { ...(a.results || {}) };
-    for (const [id, result] of Object.entries(b.results || {})) {
+    const local = localProfiles[grade] || freshProfile();
+    const incoming = incomingProfiles[grade] || freshProfile();
+    const results = { ...(local.results || {}) };
+    for (const [id, result] of Object.entries(incoming.results || {})) {
       const old = results[id] || {};
       results[id] = {
-        ...old,
-        ...result,
+        ...old, ...result,
         attempts: Math.max(Number(old.attempts) || 0, Number(result.attempts) || 0),
         errors: Math.max(Number(old.errors) || 0, Number(result.errors) || 0),
         mastered: !!(old.mastered || result.mastered),
@@ -47,24 +45,26 @@ function mergeCloudState(remote) {
       };
     }
     const events = new Map();
-    for (const event of [...(a.events || []), ...(b.events || [])]) {
-      const key = [event.at, event.id, event.kind, event.ok, event.given].join('|');
-      events.set(key, event);
+    for (const event of [...(local.events || []), ...(incoming.events || [])]) {
+      events.set([event.at, event.id, event.kind, event.ok, event.given].join('|'), event);
     }
-    const mergedEvents = [...events.values()]
-      .sort((x, y) => String(x.at || '').localeCompare(String(y.at || '')))
-      .slice(-2000);
-    local[grade] = {
-      ...freshProfile(), ...a, ...b, results, events: mergedEvents,
-      stars: Math.max(Number(a.stars) || 0, Number(b.stars) || 0),
-      unlocked: Math.max(Number(a.unlocked) || 1, Number(b.unlocked) || 1),
-      skipped: [...new Set([...(a.skipped || []), ...(b.skipped || [])])]
+    appState.profiles[grade] = {
+      ...freshProfile(), ...local, ...incoming, results,
+      events: [...events.values()].sort((a, b) => String(a.at || '').localeCompare(String(b.at || ''))).slice(-2000),
+      stars: Math.max(Number(local.stars) || 0, Number(incoming.stars) || 0),
+      unlocked: Math.max(Number(local.unlocked) || 1, Number(incoming.unlocked) || 1),
+      skipped: [...new Set([...(local.skipped || []), ...(incoming.skipped || [])])]
     };
   }
-  appState.profiles = local;
-  if (!appState.selectedGrade && remote.selectedGrade) appState.selectedGrade = String(remote.selectedGrade);
+  appState.selectedGrade = remote.selectedGrade ? String(remote.selectedGrade) : appState.selectedGrade;
   appState.guideSeen = !!(appState.guideSeen || remote.guideSeen);
-  selectedGrade = String(appState.selectedGrade || selectedGrade);
+  if (!appState.profiles) appState.profiles = { '2': freshProfile(), '4': freshProfile() };
+  for (const profile of Object.values(appState.profiles)) {
+    if (!profile.results) profile.results = {};
+    if (!Array.isArray(profile.events)) profile.events = [];
+    if (!Array.isArray(profile.skipped)) profile.skipped = [];
+  }
+  selectedGrade = String(appState.selectedGrade || '4');
   state = appState.profiles[selectedGrade] || appState.profiles['4'];
   BANK = selectedGrade === '2' ? BANK2 : BANK4;
   LEVELS = selectedGrade === '2' ? LEVELS2 : LEVELS4;
@@ -83,26 +83,30 @@ async function mathCloudWrite() {
 }
 
 async function mathCloudSync() {
-  if (!mathCloud || !mathCloudUser || mathCloudBusy) return;
+  if (!mathCloud || !mathCloudUser || mathCloudBusy) return false;
+  clearTimeout(mathCloudSaveTimer);
   mathCloudBusy = true;
-  renderCloudPanel();
   try {
     const { data, error } = await mathCloud.from('math_adventure_state')
       .select('state').eq('user_id', mathCloudUser.id).maybeSingle();
     if (error) throw error;
     if (data?.state) {
+      if (mathCloudLegacyPending) {
+        const pin = appState.pin;
+        appState = freshApp();
+        appState.pin = pin;
+      }
       mergeCloudState(data.state);
-      mathCloudPaused = true;
-      try { localStorage.setItem(KEY, JSON.stringify(appState)); }
-      finally { mathCloudPaused = false; }
     }
     await mathCloudWrite();
-    mathCloudMessage = 'Đã đồng bộ / Zsynchronizowano';
-    if (view === 'parent' && mode === 'parent') render();
-    else renderCloudPanel();
+    try { localStorage.removeItem(KEY); } catch {}
+    mathCloudLegacyPending = false;
+    mathCloudReady = true;
+    mathCloudMessage = 'Đã kết nối và lưu tiến độ trên đám mây / Połączono i zapisano postępy w chmurze';
+    return true;
   } catch (error) {
-    mathCloudMessage = 'Không đồng bộ được: ' + (error.message || 'kiểm tra kết nối') + ' / Synchronizacja nieudana';
-    renderCloudPanel();
+    mathCloudMessage = 'Không kết nối được dữ liệu: ' + (error.message || 'kiểm tra kết nối') + ' / Nie udało się połączyć danych';
+    return false;
   } finally {
     mathCloudBusy = false;
     renderCloudPanel();
@@ -110,7 +114,7 @@ async function mathCloudSync() {
 }
 
 function mathCloudQueue() {
-  if (!mathCloudUser || mathCloudPaused) return;
+  if (!mathCloudUser || !mathCloudReady || mathCloudPaused) return;
   clearTimeout(mathCloudSaveTimer);
   mathCloudSaveTimer = setTimeout(() => mathCloudWrite()
     .then(() => {
@@ -120,7 +124,7 @@ function mathCloudQueue() {
     .catch(error => {
       mathCloudMessage = 'Chưa đồng bộ được: ' + (error.message || '') + ' / Nie zsynchronizowano';
       renderCloudPanel();
-    }), 500);
+    }), 400);
 }
 
 const localSaveBeforeCloud = save;
@@ -129,72 +133,123 @@ save = function () {
   mathCloudQueue();
 };
 
-async function mathCloudSendCode() {
+function renderAuthGate() {
+  if (!app) return;
+  document.getElementById('parentBtn').classList.add('hidden');
+  document.getElementById('gradeBtn').classList.add('hidden');
+  document.getElementById('subTitle').textContent = 'Tài khoản phụ huynh · Konto rodzica';
+  app.className = 'view view-auth';
+  const verify = mathCloudAuthStep === 'verify';
+  app.innerHTML = `<section class="card hero"><h1>Math Adventure</h1><p>Utwórz konto rodzica lub zaloguj się${vn('Đăng ký tài khoản bố mẹ hoặc đăng nhập')}</p></section><section class="card pinCard"><h2>${verify ? 'Aktywuj konto / Kích hoạt tài khoản' : mathCloudAuthMode === 'register' ? 'Rejestracja rodzica / Đăng ký phụ huynh' : 'Logowanie rodzica / Đăng nhập phụ huynh'}</h2>${verify ? `<p>Wpisz 6-cyfrowy kod wysłany na <b>${cloudEscape(mathCloudEmailDraft)}</b>.${vn('Nhập mã 6 số được gửi tới email của bạn.')}</p><label for="mathCloudCode">Kod OTP / Mã kích hoạt</label><input id="mathCloudCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" value="${cloudEscape(mathCloudCodeDraft)}" placeholder="123456" oninput="mathCloudCodeDraft=this.value" onkeydown="if(event.key==='Enter')mathCloudVerifySignup()"><div class="actions"><button onclick="mathCloudVerifySignup()" ${mathCloudBusy ? 'disabled' : ''}>Aktywuj konto / Kích hoạt tài khoản</button><button class="secondary" onclick="mathCloudAuthStep='credentials';mathCloudMessage='';renderAuthGate()" ${mathCloudBusy ? 'disabled' : ''}>Wróć / Quay lại</button></div>` : `<label for="mathCloudEmail">Email rodzica / Email phụ huynh</label><input id="mathCloudEmail" type="email" autocomplete="email" value="${cloudEscape(mathCloudEmailDraft)}" placeholder="name@example.com" oninput="mathCloudEmailDraft=this.value"><label for="mathCloudPassword">Hasło / Mật khẩu</label><input id="mathCloudPassword" type="password" autocomplete="${mathCloudAuthMode === 'register' ? 'new-password' : 'current-password'}" placeholder="${mathCloudAuthMode === 'register' ? 'Minimum 6 znaków / Tối thiểu 6 ký tự' : ''}" onkeydown="if(event.key==='Enter')mathCloudSubmitCredentials()"><div class="actions"><button onclick="mathCloudSubmitCredentials()" ${mathCloudBusy ? 'disabled' : ''}>${mathCloudAuthMode === 'register' ? 'Utwórz konto / Đăng ký' : 'Zaloguj się / Đăng nhập'}</button><button class="secondary" onclick="mathCloudAuthMode='${mathCloudAuthMode === 'register' ? 'login' : 'register'}';mathCloudMessage='';renderAuthGate()" ${mathCloudBusy ? 'disabled' : ''}>${mathCloudAuthMode === 'register' ? 'Mam już konto / Đã có tài khoản' : 'Utwórz konto / Đăng ký nowe'}</button></div>`}${mathCloudUser && !mathCloudReady ? `<div class="actions"><button class="secondary" onclick="mathCloudFinishAuth(mathCloudUser)" ${mathCloudBusy ? 'disabled' : ''}>Ponów połączenie / Thử kết nối lại</button></div>` : ''}<p class="note">${cloudEscape(mathCloudMessage)}${mathCloudBusy ? ' · Łączenie… / Đang kết nối…' : ''}</p></section>`;
+}
+
+async function mathCloudSubmitCredentials() {
+  const requestedMode = mathCloudAuthMode;
   const email = document.getElementById('mathCloudEmail')?.value.trim();
+  const password = document.getElementById('mathCloudPassword')?.value || '';
   mathCloudEmailDraft = email || '';
   if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-    cloudMessage('Nhập email hợp lệ / Wpisz prawidłowy e-mail', true);
+    mathCloudMessage = 'Wpisz prawidłowy e-mail / Hãy nhập email hợp lệ';
+    renderAuthGate();
+    return;
+  }
+  if (!password || (requestedMode === 'register' && password.length < 6)) {
+    mathCloudMessage = requestedMode === 'register' ? 'Hasło musi mieć co najmniej 6 znaków / Mật khẩu cần ít nhất 6 ký tự' : 'Wpisz hasło / Hãy nhập mật khẩu';
+    renderAuthGate();
     return;
   }
   if (!mathCloud) {
-    cloudMessage('Không tải được dịch vụ kết nối / Nie załadowano biblioteki', true);
+    mathCloudMessage = 'Usługa logowania jest niedostępna / Dịch vụ đăng nhập chưa sẵn sàng';
+    renderAuthGate();
     return;
   }
   mathCloudBusy = true;
-  renderCloudPanel();
-  const { error } = await mathCloud.auth.signInWithOtp({
-    email,
-    options: { shouldCreateUser: true, emailRedirectTo: location.origin + location.pathname }
-  });
+  mathCloudMessage = '';
+  renderAuthGate();
+  const result = requestedMode === 'register'
+    ? await mathCloud.auth.signUp({ email, password })
+    : await mathCloud.auth.signInWithPassword({ email, password });
   mathCloudBusy = false;
-  if (error) {
-    cloudMessage('Không gửi được mã: ' + error.message + ' / Nie wysłano kodu', true);
+  if (result.error) {
+    mathCloudMessage = result.error.message;
+    renderAuthGate();
     return;
   }
-  cloudMessage('Đã gửi mã 6 số tới email. Mã có thời hạn theo cấu hình Supabase. / Wysłano 6-cyfrowy kod e-mail.');
-  document.getElementById('mathCloudCode')?.focus();
+  if (requestedMode === 'register' && !result.data.session) {
+    mathCloudAuthStep = 'verify';
+    mathCloudMessage = 'Wysłaliśmy kod aktywacyjny / Đã gửi mã kích hoạt tới email';
+    renderAuthGate();
+    return;
+  }
+  await mathCloudFinishAuth(result.data.user || result.data.session?.user);
 }
 
-async function mathCloudVerifyCode() {
-  const email = document.getElementById('mathCloudEmail')?.value.trim();
+async function mathCloudVerifySignup() {
   const token = document.getElementById('mathCloudCode')?.value.replace(/\s/g, '');
-  mathCloudEmailDraft = email || '';
   mathCloudCodeDraft = token || '';
-  if (!email || !/^[0-9]{6}$/.test(token || '')) {
-    cloudMessage('Nhập email và mã OTP 6 số / Wpisz e-mail i 6-cyfrowy kod', true);
+  if (!/^[0-9]{6}$/.test(token || '')) {
+    mathCloudMessage = 'Wpisz 6-cyfrowy kod / Hãy nhập mã gồm 6 chữ số';
+    renderAuthGate();
     return;
   }
   mathCloudBusy = true;
-  renderCloudPanel();
-  const { data, error } = await mathCloud.auth.verifyOtp({ email, token, type: 'email' });
+  renderAuthGate();
+  const { data, error } = await mathCloud.auth.verifyOtp({ email: mathCloudEmailDraft, token, type: 'signup' });
   mathCloudBusy = false;
   if (error) {
-    cloudMessage('Mã không hợp lệ hoặc đã hết hạn. Gửi mã mới và thử lại. / Kod jest nieprawidłowy lub wygasł.', true);
+    mathCloudMessage = error.message;
+    renderAuthGate();
     return;
   }
-  mathCloudUser = data.user;
   mathCloudCodeDraft = '';
-  await mathCloudSync();
+  await mathCloudFinishAuth(data.user);
+}
+
+async function mathCloudFinishAuth(user) {
+  if (!user) {
+    mathCloudMessage = 'Nie udało się potwierdzić konta / Không xác nhận được tài khoản';
+    renderAuthGate();
+    return;
+  }
+  mathCloudUser = user;
+  mathCloudReady = false;
+  const ok = await mathCloudSync();
+  if (!ok) {
+    mathCloudReady = false;
+    renderAuthGate();
+    return;
+  }
+  mathCloudAuthStep = 'credentials';
+  mathCloudAuthMode = 'login';
+  mode = 'child';
+  if (!appState.pin) view = 'setup';
+  else if (!appState.selectedGrade) view = 'unlock';
+  else view = 'home';
+  render();
 }
 
 async function mathCloudSignOut() {
   if (!mathCloud) return;
   await mathCloud.auth.signOut();
   mathCloudUser = null;
-  mathCloudMessage = 'Đã đăng xuất khỏi đồng bộ / Wylogowano';
-  renderCloudPanel();
+  mathCloudReady = false;
+  mathCloudLegacyPending = false;
+  appState = freshApp();
+  try { localStorage.removeItem(PIN_KEY); localStorage.removeItem(KEY); } catch {}
+  mathCloudMessage = 'Wylogowano / Đã đăng xuất';
+  renderAuthGate();
 }
 
 function renderCloudPanel() {
   const box = document.getElementById('mathCloudPanel');
   if (!box) return;
-  box.innerHTML = `<div class="card" style="margin-top:18px"><h3>☁️ Đồng bộ kết quả giữa các thiết bị</h3>${vn('Bố mẹ dùng email để nhận mã OTP 6 số. Đăng nhập cùng email trên iPhone khác để xem kết quả lớp 2 và lớp 4.')}${mathCloudUser ? `<p><b>Đã kết nối / Połączono:</b> ${cloudEscape(mathCloudUser.email || '')}</p><p class="muted">PIN bố mẹ chỉ lưu trên thiết bị này. / PIN rodzica jest przechowywany tylko na tym urządzeniu.</p>` : `<label for="mathCloudEmail">Email bố mẹ / E-mail rodzica</label><input id="mathCloudEmail" type="email" autocomplete="email" value="${cloudEscape(mathCloudEmailDraft)}" oninput="mathCloudEmailDraft=this.value" placeholder="name@example.com"><div class="actions"><button class="secondary" onclick="mathCloudSendCode()" ${mathCloudBusy ? 'disabled' : ''}>Gửi mã OTP / Wyślij kod</button></div><label for="mathCloudCode">Mã OTP 6 số / Kod OTP (6 cyfr)</label><input id="mathCloudCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" value="${cloudEscape(mathCloudCodeDraft)}" oninput="mathCloudCodeDraft=this.value" placeholder="123456"><div class="actions"><button onclick="mathCloudVerifyCode()" ${mathCloudBusy ? 'disabled' : ''}>Xác minh và đồng bộ / Zweryfikuj i synchronizuj</button></div>`}<p class="note">${cloudEscape(mathCloudMessage)}${mathCloudLastSync ? ' · ' + cloudEscape(mathCloudLastSync) : ''}</p>${mathCloudUser ? `<div class="actions"><button class="secondary" onclick="mathCloudSync()" ${mathCloudBusy ? 'disabled' : ''}>↻ Đồng bộ ngay / Synchronizuj teraz</button><button class="outline" onclick="mathCloudSignOut()">Đăng xuất / Wyloguj</button></div>` : ''}</div>`;
+  box.innerHTML = `<div class="card" style="margin-top:18px"><h3>☁️ Konto i synchronizacja rodzica / Tài khoản và đồng bộ</h3>${vn('Kết quả học được lưu trên tài khoản để bố mẹ xem trên thiết bị khác. PIN bố mẹ chỉ lưu trên thiết bị này.')}${mathCloudUser ? `<p><b>Konto / Tài khoản:</b> ${cloudEscape(mathCloudUser.email || '')}</p><p class="muted">${cloudEscape(mathCloudMessage)}${mathCloudLastSync ? ' · ' + cloudEscape(mathCloudLastSync) : ''}</p>` : ''}<div class="actions"><button class="secondary" onclick="mathCloudSync()" ${mathCloudBusy ? 'disabled' : ''}>↻ Synchronizuj teraz / Đồng bộ ngay</button><button class="outline" onclick="mathCloudSignOut()">Wyloguj / Đăng xuất tài khoản</button></div></div>`;
 }
 
-const parentWithSettingsAndCloud = parent;
+const renderParentPanelBeforeCloud = parent;
 parent = function () {
-  parentWithSettingsAndCloud();
-  if (mode !== 'parent') return;
+  renderParentPanelBeforeCloud();
+  if (mode !== 'parent' || !mathCloudReady) return;
   const card = app.querySelector('.card');
   if (!card) return;
   const cloud = document.createElement('section');
@@ -203,25 +258,40 @@ parent = function () {
   renderCloudPanel();
 };
 
-async function initMathCloud() {
-  if (!mathCloud) {
-    mathCloudMessage = 'Không tải được thư viện Supabase; chức năng đồng bộ đang tắt. / Nie załadowano biblioteki Supabase.';
+const renderAppAfterCloudAuth = render;
+render = function () {
+  if (!mathCloudReady || !mathCloudUser) {
+    renderAuthGate();
     return;
   }
-  const { data } = await mathCloud.auth.getSession();
-  mathCloudUser = data.session?.user || null;
-  mathCloud.auth.onAuthStateChange((_event, session) => {
-    mathCloudUser = session?.user || null;
-    setTimeout(() => {
-      if (mathCloudUser) void mathCloudSync();
-      else renderCloudPanel();
-    }, 0);
+  renderAppAfterCloudAuth();
+};
+
+async function initMathCloud() {
+  if (!window.mathAppShouldRender) return;
+  if (!mathCloud) {
+    mathCloudMessage = 'Nie można załadować logowania. Sprawdź połączenie internetowe. / Không tải được dịch vụ đăng nhập. Hãy kiểm tra mạng.';
+    renderAuthGate();
+    return;
+  }
+  const { data, error } = await mathCloud.auth.getSession();
+  if (error) mathCloudMessage = error.message;
+  mathCloud.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT' || !session?.user) {
+      mathCloudUser = null;
+      mathCloudReady = false;
+      renderAuthGate();
+    }
   });
-  if (mathCloudUser) await mathCloudSync();
+  if (data.session?.user) {
+    await mathCloudFinishAuth(data.session.user);
+  } else {
+    renderAuthGate();
+  }
 }
 
-window.addEventListener('focus', () => { if (mathCloudUser) void mathCloudSync(); });
+window.addEventListener('focus', () => { if (mathCloudUser && mathCloudReady) void mathCloudSync(); });
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible' && mathCloudUser) void mathCloudSync();
+  if (document.visibilityState === 'visible' && mathCloudUser && mathCloudReady) void mathCloudSync();
 });
 void initMathCloud();
