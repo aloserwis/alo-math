@@ -372,17 +372,18 @@ render = function () {
   renderAppAfterCloudAuth();
 };
 
+let mathCloudRecoveryUser = null;
+
 async function initMathCloud() {
   if (!mathCloud) {
     mathCloudMessage = 'Nie można załadować logowania. Sprawdź połączenie internetowe. / Không tải được dịch vụ đăng nhập. Hãy kiểm tra mạng.';
     renderAuthGate();
     return;
   }
-  const { data, error } = await mathCloud.auth.getSession();
-  if (error) mathCloudMessage = mathCloudFriendlyError(error);
   mathCloud.auth.onAuthStateChange((event, session) => {
     if (event === 'PASSWORD_RECOVERY') {
-      mathCloudUser = session?.user || null;
+      mathCloudRecoveryUser = session?.user || null;
+      mathCloudUser = mathCloudRecoveryUser;
       mathCloudReady = false;
       mathCloudAuthStep = 'reset';
       mathCloudMessage = '';
@@ -395,10 +396,13 @@ async function initMathCloud() {
       renderAuthGate();
     }
   });
+  const { data, error } = await mathCloud.auth.getSession();
+  if (error) mathCloudMessage = mathCloudFriendlyError(error);
   const recoveryPending = new URLSearchParams(window.location.search).get('auth') === 'reset';
   if (recoveryPending) {
-    if (data.session?.user) {
-      mathCloudUser = data.session.user;
+    const recoveryUser = mathCloudRecoveryUser || data.session?.user;
+    if (recoveryUser) {
+      mathCloudUser = recoveryUser;
       mathCloudReady = false;
       mathCloudAuthStep = 'reset';
     } else {
