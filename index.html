@@ -4951,4 +4951,4 @@ const renderParentPanelBase=parent;
 parent=function(){renderParentPanelBase();if(mode!=='parent')return;const card=app.querySelector('.card');if(!card)return;const section=document.createElement('section');section.className='section';section.innerHTML=`<h3>Ustawienia aplikacji / Cài đặt ứng dụng</h3>${vn('Bố mẹ có thể đặt lại dữ liệu học hoặc tải lại phiên bản mới nhất.') }<div class="actions"><button class="outline" onclick="resetAllData()">↺ Zacznij od początku${vn('Đặt lại dữ liệu từ đầu')}</button><button class="secondary" onclick="loadLatestVersion()">⬇ Wczytaj najnowszą wersję${vn('Tải phiên bản mới nhất')}</button></div>`;card.appendChild(section)};
 document.getElementById('parentBtn').addEventListener('click',()=>{if(mode==='parent'){setView('parent');return}if(!appState.pin){view='setup';render();return}view='unlock';render()});
 window.mathAppShouldRender=shouldRenderCurrentPage();
-</script><script src="./cloud.js"></script></body></html>
+</script><script src="./cloud.js?v=20261013-register"></script></body></html>
