@@ -4882,7 +4882,7 @@ let view=!appState.pin?'setup':(appState.selectedGrade?'home':'unlock'),active=1
 const app=document.getElementById('app');
 function activateGrade(g){mode='child';selectedGrade=String(g);appState.selectedGrade=selectedGrade;state=appState.profiles[selectedGrade];BANK=selectedGrade==='2'?BANK2:BANK4;LEVELS=selectedGrade==='2'?LEVELS2:LEVELS4;save();view='home';filter='all';render()}
 function save(){try{if(appState.pin)localStorage.setItem(PIN_KEY,appState.pin);else localStorage.removeItem(PIN_KEY)}catch{} }
-function vn(t){return `<div class="vn">${t}</div>`}function levelOf(n){return BANK[n-1].level}function fmtDate(s){return new Date(s).toLocaleString('pl-PL')}
+function vn(t){return `<span class="vn">${t}</span>`}function levelOf(n){return BANK[n-1].level}function fmtDate(s){return new Date(s).toLocaleString('pl-PL')}
 function mastered(id){return !!state.results[id]?.mastered}function doneCount(l){return BANK.filter(q=>(!l||q.level===l)&&mastered(q.id)).length}
 function setView(v){view=v;render();scrollTo(0,0)}
 function render(){app.className='view view-'+view;document.getElementById('parentBtn').textContent=mode==='parent'?'🔓':'🔒';document.getElementById('parentBtn').classList.toggle('hidden',view==='setup'||view==='unlock');document.getElementById('gradeBtn').classList.toggle('hidden',mode!=='parent'||view==='grades');if(view==='setup')setupPinPage();else if(view==='unlock')parentUnlockPage();else if(view==='grades')gradePicker();else if(view==='home')home();else if(view==='list')list();else if(view==='quiz')quiz();else if(view==='parent')parent();}
