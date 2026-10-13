@@ -1,6 +1,3 @@
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
-Failed to create stream fd: Operation not permitted
 let mathCloudUser = null;
 let mathCloudMessage = 'Chưa kết nối tài khoản / Konto niepołączone';
 let mathCloudBusy = false;
