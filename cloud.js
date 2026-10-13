@@ -11,6 +11,19 @@ let mathCloudAuthStep = 'credentials';
 let mathCloudMessage = '';
 let mathCloudLegacyPending = true;
 
+function mathCloudFriendlyError(error) {
+  const message = String(error?.message || '').toLowerCase();
+  if (message.includes('invalid login credentials') || message.includes('invalid email or password')) return 'Nieprawidłowy e-mail lub hasło. / Email hoặc mật khẩu không đúng.';
+  if (message.includes('user already registered') || message.includes('already registered')) return 'Ten adres jest już zarejestrowany. Zaloguj się lub wybierz „Nie pamiętam hasła”. / Email này đã được đăng ký. Hãy đăng nhập hoặc chọn “Quên mật khẩu”.';
+  if (message.includes('email not confirmed')) return 'Konto nie zostało aktywowane. Sprawdź e-mail. / Tài khoản chưa được kích hoạt. Hãy kiểm tra email.';
+  if (message.includes('error sending confirmation email')) return 'Nie udało się wysłać e-maila aktywacyjnego. Spróbuj później. / Chưa gửi được email kích hoạt. Hãy thử lại sau.';
+  if (message.includes('rate limit') || message.includes('too many requests')) return 'Zbyt wiele prób. Odczekaj chwilę i spróbuj ponownie. / Bạn đã thử quá nhiều lần. Hãy đợi một lúc rồi thử lại.';
+  if (message.includes('password') && (message.includes('weak') || message.includes('short') || message.includes('at least'))) return 'Hasło jest za krótkie lub zbyt łatwe. Użyj co najmniej 6 znaków. / Mật khẩu quá ngắn hoặc quá dễ đoán. Hãy dùng ít nhất 6 ký tự.';
+  if (message.includes('expired') || message.includes('invalid token') || message.includes('invalid otp')) return 'Kod lub link wygasł albo jest nieprawidłowy. Poproś o nowy. / Mã hoặc liên kết đã hết hạn hoặc không hợp lệ. Hãy yêu cầu mã mới.';
+  if (message.includes('network') || message.includes('fetch')) return 'Problem z połączeniem. Sprawdź internet i spróbuj ponownie. / Lỗi kết nối. Hãy kiểm tra mạng rồi thử lại.';
+  return 'Nie udało się wykonać tej czynności. Sprawdź dane i spróbuj ponownie. / Chưa thực hiện được. Hãy kiểm tra thông tin và thử lại.';
+}
+
 function cloudEscape(text) {
   return String(text ?? '').replace(/[&<>"']/g, ch => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -105,7 +118,7 @@ async function mathCloudSync() {
     mathCloudMessage = '';
     return true;
   } catch (error) {
-    mathCloudMessage = 'Không kết nối được dữ liệu: ' + (error.message || 'kiểm tra kết nối') + ' / Nie udało się połączyć danych';
+    mathCloudMessage = 'Nie udało się połączyć danych. Sprawdź połączenie internetowe. / Không thể đồng bộ dữ liệu. Hãy kiểm tra kết nối mạng.';
     return false;
   } finally {
     mathCloudBusy = false;
@@ -122,7 +135,7 @@ function mathCloudQueue() {
       renderCloudPanel();
     })
     .catch(error => {
-      mathCloudMessage = 'Chưa đồng bộ được: ' + (error.message || '') + ' / Nie zsynchronizowano';
+      mathCloudMessage = 'Nie udało się zsynchronizować postępów. / Chưa đồng bộ được tiến độ.';
       renderCloudPanel();
     }), 400);
 }
@@ -150,11 +163,11 @@ function renderAuthGate() {
     : 'Logowanie rodzica / Đăng nhập phụ huynh';
   const emailField = `<label for="mathCloudEmail">${pairedLanguageHTML('Email rodzica / Email phụ huynh')}</label><input id="mathCloudEmail" type="email" autocomplete="email" value="${cloudEscape(mathCloudEmailDraft)}" placeholder="name@example.com" oninput="mathCloudEmailDraft=this.value">`;
   const backButton = `<div class="actions"><button class="secondary" onclick="mathCloudBackToLogin()">${pairedLanguageHTML('Wróć do logowania / Quay lại đăng nhập')}</button></div>`;
-  app.innerHTML = `<section class="card hero"><h1>Math Adventure</h1><p>Utwórz konto rodzica lub zaloguj się${vn('Đăng ký tài khoản bố mẹ hoặc đăng nhập')}</p></section><section class="card pinCard"><h2>${pairedLanguageHTML(heading)}</h2>${verify ? `<p><span class="pl">Wpisz 8-cyfrowy kod wysłany na <b>${cloudEscape(mathCloudEmailDraft)}</b>.</span><span class="vn">Nhập mã 8 số được gửi tới email <b>${cloudEscape(mathCloudEmailDraft)}</b>.</span></p><label for="mathCloudCode">${pairedLanguageHTML('Kod OTP / Mã kích hoạt')}</label><input id="mathCloudCode" inputmode="numeric" autocomplete="one-time-code" maxlength="8" value="${cloudEscape(mathCloudCodeDraft)}" placeholder="12345678" oninput="mathCloudCodeDraft=this.value" onkeydown="if(event.key==='Enter')mathCloudVerifySignup()"><div class="actions"><button onclick="mathCloudVerifySignup()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('Aktywuj konto / Kích hoạt tài khoản')}</button><button class="secondary" onclick="mathCloudAuthStep='credentials';mathCloudMessage='';renderAuthGate()">${pairedLanguageHTML('Wróć / Quay lại')}</button></div>`
+  app.innerHTML = `<section class="card hero"><h1>${pairedLanguageHTML('Matematyczna Przygoda / Phiêu lưu Toán học')}</h1><p>Utwórz konto rodzica lub zaloguj się${vn('Đăng ký tài khoản bố mẹ hoặc đăng nhập')}</p></section><section class="card pinCard"><h2>${pairedLanguageHTML(heading)}</h2>${verify ? `<p><span class="pl">Wpisz 8-cyfrowy kod wysłany na <b>${cloudEscape(mathCloudEmailDraft)}</b>.</span><span class="vn">Nhập mã 8 số được gửi tới email <b>${cloudEscape(mathCloudEmailDraft)}</b>.</span></p><label for="mathCloudCode">${pairedLanguageHTML('Kod OTP / Mã kích hoạt')}</label><input id="mathCloudCode" inputmode="numeric" autocomplete="one-time-code" maxlength="8" value="${cloudEscape(mathCloudCodeDraft)}" placeholder="12345678" oninput="mathCloudCodeDraft=this.value" onkeydown="if(event.key==='Enter')mathCloudVerifySignup()"><div class="actions"><button onclick="mathCloudVerifySignup()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('Aktywuj konto / Kích hoạt tài khoản')}</button><button class="secondary" onclick="mathCloudAuthStep='credentials';mathCloudMessage='';renderAuthGate()">${pairedLanguageHTML('Wróć / Quay lại')}</button></div>`
     : reset ? `<p>${pairedLanguageHTML('Wpisz i potwierdź nowe hasło. / Nhập và xác nhận mật khẩu mới.')}</p><label for="mathCloudNewPassword">${pairedLanguageHTML('Nowe hasło / Mật khẩu mới')}</label><input id="mathCloudNewPassword" type="password" autocomplete="new-password" minlength="6" placeholder="${pairedLanguageHTML('Minimum 6 znaków / Tối thiểu 6 ký tự')}" onkeydown="if(event.key==='Enter')mathCloudUpdatePassword()"><label for="mathCloudConfirmPassword">${pairedLanguageHTML('Powtórz nowe hasło / Nhập lại mật khẩu mới')}</label><input id="mathCloudConfirmPassword" type="password" autocomplete="new-password" minlength="6" onkeydown="if(event.key==='Enter')mathCloudUpdatePassword()"><div class="actions"><button onclick="mathCloudUpdatePassword()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('Zapisz nowe hasło / Lưu mật khẩu mới')}</button></div>${backButton}`
     : recoveryError ? `<p>${pairedLanguageHTML('Link do zmiany hasła jest nieprawidłowy lub wygasł. Poproś o nowy link. / Liên kết đặt lại mật khẩu không hợp lệ hoặc đã hết hạn. Hãy yêu cầu liên kết mới.')}</p>${backButton}`
     : forgot ? `${emailField}<p>${pairedLanguageHTML('Wyślemy link do zmiany hasła, jeśli konto jest zarejestrowane na ten adres. / Nếu email này đã đăng ký, chúng tôi sẽ gửi liên kết đặt lại mật khẩu.')}</p><div class="actions"><button onclick="mathCloudSendRecovery()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('Wyślij link / Gửi liên kết')}</button></div>${backButton}`
-    : `${emailField}<label for="mathCloudPassword">${pairedLanguageHTML('Hasło / Mật khẩu')}</label><input id="mathCloudPassword" type="password" autocomplete="${mathCloudAuthMode === 'register' ? 'new-password' : 'current-password'}" placeholder="${mathCloudAuthMode === 'register' ? 'Minimum 6 znaków / Tối thiểu 6 ký tự' : ''}" onkeydown="if(event.key==='Enter')mathCloudSubmitCredentials()"><div class="actions"><button onclick="mathCloudSubmitCredentials()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML(mathCloudAuthMode === 'register' ? 'Utwórz konto / Đăng ký' : 'Zaloguj się / Đăng nhập')}</button><button class="secondary" onclick="mathCloudAuthMode='${mathCloudAuthMode === 'register' ? 'login' : 'register'}';mathCloudMessage='';renderAuthGate()">${pairedLanguageHTML(mathCloudAuthMode === 'register' ? 'Mam już konto / Đã có tài khoản' : 'Utwórz konto / Đăng ký nowe')}</button></div>${mathCloudAuthMode === 'login' ? `<div class="actions"><button class="outline" onclick="mathCloudShowForgotPassword()">${pairedLanguageHTML('Nie pamiętam hasła / Quên mật khẩu')}</button></div>` : ''}`}${mathCloudUser && !mathCloudReady ? `<div class="actions"><button class="secondary" onclick="mathCloudFinishAuth(mathCloudUser)" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('Ponów połączenie / Thử kết nối lại')}</button></div>` : ''}<p class="note">${pairedLanguageHTML(mathCloudMessage)}${mathCloudBusy ? `<span class="pl"> · Łączenie…</span><span class="vn"> · Đang kết nối…</span>` : ''}</p></section>`;
+    : `${emailField}<label for="mathCloudPassword">${pairedLanguageHTML('Hasło / Mật khẩu')}</label><input id="mathCloudPassword" type="password" autocomplete="${mathCloudAuthMode === 'register' ? 'new-password' : 'current-password'}" placeholder="${mathCloudAuthMode === 'register' ? 'Minimum 6 znaków / Tối thiểu 6 ký tự' : ''}" onkeydown="if(event.key==='Enter')mathCloudSubmitCredentials()"><div class="actions"><button onclick="mathCloudSubmitCredentials()" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML(mathCloudAuthMode === 'register' ? 'Utwórz konto / Đăng ký' : 'Zaloguj się / Đăng nhập')}</button><button class="secondary" onclick="mathCloudAuthMode='${mathCloudAuthMode === 'register' ? 'login' : 'register'}';mathCloudMessage='';renderAuthGate()">${pairedLanguageHTML(mathCloudAuthMode === 'register' ? 'Mam już konto / Đã có tài khoản' : 'Utwórz konto / Đăng ký nowe')}</button></div>${mathCloudAuthMode === 'login' ? `<div class="actions"><button class="outline" onclick="mathCloudShowForgotPassword()">${pairedLanguageHTML('Nie pamiętam hasła / Quên mật khẩu')}</button></div>` : ''}`}${mathCloudUser && !mathCloudReady ? `<div class="actions"><button class="secondary" onclick="mathCloudFinishAuth(mathCloudUser)" ${mathCloudBusy ? 'disabled' : ''}>${pairedLanguageHTML('Ponów połączenie / Thử kết nối lại')}</button></div>` : ''}<p class="note" style="${mathCloudMessage || mathCloudBusy ? '' : 'display:none'}">${pairedLanguageHTML(mathCloudMessage)}${mathCloudBusy ? `<span class="pl"> · Łączenie…</span><span class="vn"> · Đang kết nối…</span>` : ''}</p></section>`;
 }
 
 function mathCloudClearRecoveryURL() {
@@ -263,7 +276,7 @@ async function mathCloudSubmitCredentials() {
     : await mathCloud.auth.signInWithPassword({ email, password });
   mathCloudBusy = false;
   if (result.error) {
-    mathCloudMessage = result.error.message;
+    mathCloudMessage = mathCloudFriendlyError(result.error);
     renderAuthGate();
     return;
   }
@@ -289,7 +302,7 @@ async function mathCloudVerifySignup() {
   const { data, error } = await mathCloud.auth.verifyOtp({ email: mathCloudEmailDraft, token, type: 'signup' });
   mathCloudBusy = false;
   if (error) {
-    mathCloudMessage = error.message;
+    mathCloudMessage = mathCloudFriendlyError(error);
     renderAuthGate();
     return;
   }
@@ -366,7 +379,7 @@ async function initMathCloud() {
     return;
   }
   const { data, error } = await mathCloud.auth.getSession();
-  if (error) mathCloudMessage = error.message;
+  if (error) mathCloudMessage = mathCloudFriendlyError(error);
   mathCloud.auth.onAuthStateChange((event, session) => {
     if (event === 'PASSWORD_RECOVERY') {
       mathCloudUser = session?.user || null;
