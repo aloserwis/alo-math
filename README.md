@@ -34,6 +34,17 @@ Migration SQL nằm trong `supabase/migrations/`. Trong Supabase Auth, đặt Si
 
 PIN bố mẹ bảo vệ các chức năng phụ huynh trên thiết bị đó; PIN không đồng bộ. Kết quả được xuất thành PDF trong khu vực bố mẹ.
 
+## Learning path · Lộ trình học
+
+The home screen includes a seven-topic learning path: everyday math, multiplication and division, mental addition and subtraction, puzzles, word problems, why math is useful, and games. Each topic introduces a goal and a worked example, then filters the existing grade question bank for related practice. The original 200 questions per grade remain unchanged. Some topics share the existing word-problem or mixed-operation questions; they are learning themes, not seven separately authored courses.
+
+Trang chủ có lộ trình bảy chủ đề: toán trong đời sống, nhân chia, cộng trừ nhẩm, câu đố, bài toán có lời văn, ích lợi của toán học và trò chơi. Mỗi chủ đề nêu mục tiêu, ví dụ rồi lọc bộ câu hỏi hiện có theo nội dung liên quan. Giữ nguyên 200 câu cho mỗi lớp. Một số chủ đề dùng chung các câu toán có lời văn hoặc phép tính hỗn hợp; đây là các chủ đề học, chưa phải bảy khóa học riêng biệt.
+
+The learning objectives were adapted in our own words from ZPE's “Matematyczne wyzwania” introduction (CC BY-SA 3.0): https://zpe.gov.pl/a/wprowadzenie/DAkqr5HhD
+
+Mục tiêu học tập được biên soạn lại bằng lời riêng, dựa trên phần giới thiệu “Matematyczne wyzwania” của ZPE (CC BY-SA 3.0): https://zpe.gov.pl/a/wprowadzenie/DAkqr5HhD
+
+
 ## Install · Cài đặt
 
 The app is a Progressive Web App. On iPhone or iPad, open it in Safari, tap the install icon in the header, then use Share → Add to Home Screen. On Android, tap the install icon when it appears or choose Install app from the browser menu. The app shell is cached for offline use; when online, each opening checks the latest version.
